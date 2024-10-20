@@ -4,27 +4,27 @@ import Logos from './components/logos';
 import Helpline from './components/helpline';
 import Slider from './components/slider';
 import HivTest from './components/hivtest';
-import Map from './components/map';
+// import Map from './components/map';
 import Activities  from './components/activities';
 import About from './components/about';
 import Nbtc from './components/nbtc';
-import Indialogos from './components/indialogos';
-import Footer from './components/footer';
+// import Indialogos from './components/indialogos';
+// import Footer from './components/footer';
 
 const page = () => {
   return (
     <div>
       <Navbar/>
       <Logos/>
+      <HivTest/>
       <Slider/>
       <Helpline/>
-      <HivTest/>
-      <Map/>
+      {/* <Map/> */}
       <Activities/>
       <About/>
       <Nbtc/>
-      <Indialogos/>
-      <Footer/>
+      {/* <Indialogos/> */}
+      {/* <Footer/> */}
     </div>
   )
 }

@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* styles.css */
+.custom-side-shadow {
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5), 5px 0 15px rgba(0, 0, 0, 0.5);
+}
+
 /* :root {
   --background: #ffffff;
   --foreground: #171717;

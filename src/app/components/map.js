@@ -12,18 +12,16 @@ const Map = () => {
         className="w-full h-[60vh] object-cover" 
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
-        <div className='flex  space-x-2 mb-4'>
-          {/* Icon with red background */}
-          <div className="bg-red-600 rounded-full p-2">
-            <IoLocationOutline className="text-white text-3xl" />
+        <div className='flex  items-center mb-2'>
+          <div className="bg-red-600 rounded-full p-[6px]">
+            <IoLocationOutline className="text-white md:text-2xl" />
           </div>
-          {/* White h1 text */}
-          <h1 className="text-white text-lg font-bold">Find this service near you</h1>
+          <h1 className="text-white text-[20px] md:text-[29px] font-bold">Find this service near you</h1>
         </div>
         <div className='flex'>
           <input 
             type="text" 
-            className="p-2 rounded border border-gray-400 outline-none md:w-[350px] max-w-[100%] placeholder:text-base" 
+            className=" p-3 md:p-4 rounded border border-gray-400 outline-none md:w-[330px] max-w-[100%] placeholder:text-base" 
             placeholder="Enter location..." 
           />
           <button className='bg-red-800 p-2 text-white ml-2 text-base'>Search</button>

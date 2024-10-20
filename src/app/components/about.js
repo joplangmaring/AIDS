@@ -1,7 +1,7 @@
 import React from 'react';
 import aboutrebon from '../../assets/aboutrebon.jpg';
 import Image from 'next/image';
-import aboutmain from '../../assets/about.png';
+import aboutmain from '../../assets/ab.jpg';
 
 const About = () => {
     return (
@@ -18,7 +18,7 @@ const About = () => {
             </div>
 
             {/* Desktop View */}
-            <div className="relative w-full h-[75vh] hidden md:flex  md:border">
+            <div className="relative w-full h-[75vh] hidden md:flex">
                 <Image
                     src={aboutrebon}
                     alt="About Background"

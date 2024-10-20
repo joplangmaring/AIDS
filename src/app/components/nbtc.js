@@ -3,10 +3,11 @@ import Image from 'next/image';
 import Scanner from '../../assets/download.svg';
 import playstore from '../../assets/playstore.png';
 import appstore from '../../assets/appstore.png';
+import frame from '../../assets/Frame.png'
 
 const Helpline = () => {
   return (
-    <div>
+    <div className='bg-red-800 '>
       <div className='bg-red-800  md:h-[30vh] flex flex-col md:flex-row justify-around px-4 md:px-60'>
         {/* Text Section */}
         <div className='mt-8 text-center md:text-left'>
@@ -25,6 +26,7 @@ const Helpline = () => {
               (Not cause harm, especially TTI) Of standard quality (Provide
               clinical...
             </p>
+            <p className='text-white mt-3'>read more...</p>
           </div>
         </div>
 
@@ -36,7 +38,7 @@ const Helpline = () => {
           </div>
 
           
-          <Scanner className='mt-2' width={100} height={100} /> {/* Adjust size as needed */}
+          {/* <Scanner className='mt-2' width={110} height={300}/> */}
         
     
 
@@ -60,6 +62,13 @@ const Helpline = () => {
           </div>
         </div>
       </div>
+      <div className='flex items-center justify-center'>
+      <Image src={frame}
+      width={200}
+      height={200}
+       alt="" />
+      </div>
+
     </div>
   );
 };
