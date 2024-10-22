@@ -6,7 +6,8 @@ import Slider from './components/slider';
 import HivTest from './components/hivtest';
 // import Map from './components/map';
 import Activities  from './components/activities';
-import About from './components/about';
+import Form from './components/form';
+// import About from './components/about';
 import Nbtc from './components/nbtc';
 // import Indialogos from './components/indialogos';
 // import Footer from './components/footer';
@@ -18,13 +19,16 @@ const page = () => {
       <Logos/>
       <HivTest/>
       <Slider/>
-      <Helpline/>
+   
       {/* <Map/> */}
-      <Activities/>
-      <About/>
+    
+      {/* <About/> */}
       <Nbtc/>
+      <Activities/>
+      <Helpline/>
       {/* <Indialogos/> */}
       {/* <Footer/> */}
+      <Form/>
     </div>
   )
 }

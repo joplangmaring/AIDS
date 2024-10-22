@@ -13,7 +13,16 @@ const Helpline = () => {
           <Image src={ribon2} width={90} alt="" />
         </div>
       </div> */}
-      <div className='bg-[#8b0000] h-[30vh] flex flex-row items-center md:items-center gap-10 justify-around'>
+
+      <div className='flex flex-col items-center bg-red-800 md:hidden'>
+        <div className='m-9 text-center'>
+        <h1 className='text-white font-bold text-2xl'>Helpline Number</h1>
+         <h1 className='text-white font-bold text-4xl'>1092</h1>
+         <p className='text-white underline'>Toll free</p>
+        </div>
+        
+      </div>
+      <div className='bg-[#8b0000] h-[30vh] flex flex-row items-center md:items-center gap-10 justify-around hidden md:flex'>
         <div className='mt-4 text-center pl-10'>
           <h1 className='font-bold text-white text-2xl md:text-3xl'>Helpline Number</h1>
           <div className='flex items-center flex-col'>
