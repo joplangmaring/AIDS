@@ -10,11 +10,11 @@ import smalllogos from '../../assets/smalllogos.png'
 const Logos = () => {
     return (
         <div>
-            <Image src={smalllogos} alt="" className='md:hidden mt-32' />
-            <div className="flex justify-center md:justify-around items-end hidden md:flex"> {/* Ensure items are aligned at the bottom */}
+            {/* <Image src={smalllogos} alt="" className='md:hidden mt-32' /> */}
+            <div className="flex justify-center md:justify-around items-end"> {/* Ensure items are aligned at the bottom */}
                 <div className="flex flex-row md:flex-row items-end md:gap-0"> {/* Stack items vertically on small screens */}
                     {/* Left Image */}
-                    <div className='w-[130px] h-[100px] md:h-[385px] md:w-[230px]   flex items-end'> {/* Align bottom */}
+                    <div className='w-[130px] h-[100px] md:h-[385px] md:w-[230px] hidden md:flex  flex items-end'> {/* Align bottom */}
                         <Image
                             src={object}
                             alt=""
@@ -48,12 +48,40 @@ const Logos = () => {
                             <h1 className='font-black text-[15px] md:text-3xl text-black text-center'>
                                 MEGHALAYA AIDS CONTROL SOCIETY
                             </h1>
-                            <p className='md:text-xl text-[12px] font-light'>
+                            <p className='md:text-xl text-[15px] mb-10'>
                                 Pasteur Hills, Shillong - 793001
                             </p>
                         </div>
-                        <h1 className='text-[18px] md:text-[45px] font-bold text-[#B32323]'>JOIN THE FIGHT</h1>
-                        <h1 className='text-[18px] md:text-[45px] font-bold text-[#B32323]'>AGAINST HIV/AIDS</h1>
+
+                        <div className='flex md:hidden'>
+                            <div className='w-[100px] mt-20 h-[100px] md:h-[385px] md:w-[230px]  md:hidden  flex items-end'> {/* Align bottom */}
+                                <Image
+                                    src={object}
+                                    alt=""
+                                    height='auto'
+                                    width='auto'
+                                    className="self-end"
+                                />
+                            </div>
+                            <div className='flex  flex-col md:hidden'>
+                                <h1 className=' text-[#B32323] font-bold text-[20px]'>Join the fight</h1>
+                                <h1 className=' text-[#B32323] font-bold text-[20px]'>against</h1>
+                                <h1 className=' text-[#B32323] font-bold text-[20px]'>HIV/AIDS</h1>
+                            </div>
+                            <div className='w-[100px] mt-20 h-[100px] md:h-[385px] md:w-[230px]  md:hidden flex items-end'> {/* Align bottom */}
+                                <Image
+                                    src={person}
+                                    alt=""
+                                    height='auto'
+                                    width='auto'
+                                    className="self-end"
+                                />
+                            </div>
+                        </div>
+                        <div className='flex flex-col items-center  hidden md:flex'>
+                            <h1 className='text-[18px] md:text-[45px] font-bold text-[#B32323]  '>JOIN THE FIGHT</h1>
+                            <h1 className='text-[18px] md:text-[45px] font-bold text-[#B32323] '>AGAINST HIV/AIDS</h1>
+                        </div>
                         <div className='flex justify-center items-center mb-2 mt-6 md:mt-10 hidden md:flex'>
                             <IoLocationSharp className="text-[#B32323] text-[20px] md:text-2xl" />
                             <h1 className="text-[#B32323] text-[13px] md:text-[16px] font-bold">
@@ -70,7 +98,7 @@ const Logos = () => {
                     </div>
 
                     {/* Right Image */}
-                    <div className='w-[100px] h-[100px] md:h-[385px] md:w-[230px] flex items-end'> {/* Align bottom */}
+                    <div className='w-[100px] h-[100px] md:h-[385px] md:w-[230px] hidden md:flex flex items-end'> {/* Align bottom */}
                         <Image
                             src={person}
                             alt=""
@@ -81,7 +109,7 @@ const Logos = () => {
                     </div>
                 </div>
             </div>
-            <div className="border-b-[1px] border-gray-500 "></div>
+            <div className="border-b-[1px] border-gray-500"></div>
             <div className='flex justify-center items-center mb-2  md:mt-10 md:hidden md:flex mt-16'>
                 <IoLocationSharp className="text-[#B32323] text-[20px] md:text-2xl" />
                 <h1 className="text-[#B32323] text-[13px] md:text-[16px] font-bold">
@@ -94,6 +122,11 @@ const Logos = () => {
                     className="p-2 md:p-4 rounded-full border-2 border-red-800 outline-none md:w-[450px] w-[280px] placeholder:text-base"
                     placeholder="Enter location..."
                 />
+            </div>
+            <div className="m-5 mt-16 md:hidden flex  justify-center mb-16">
+                <h1 className="text-lg md:text-2xl w-[90%] md:w-[50%]">
+                    NACO envisions an India where every person living with HIV has access to quality care and is treated with dignity. Effective prevention, care, and support for HIV/AIDS is possible in an environment where human rights are respected and where those infected or affected by HIV/AIDS live a life without stigma and discrimination.
+                </h1>
             </div>
         </div>
     );

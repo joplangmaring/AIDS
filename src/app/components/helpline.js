@@ -14,7 +14,7 @@ const Helpline = () => {
         </div>
       </div> */}
 
-      <div className='flex flex-col items-center bg-red-800 md:hidden'>
+      <div className='flex flex-col items-center mt-[120%] bg-red-800 md:hidden'>
         <div className='m-9 text-center'>
         <h1 className='text-white font-bold text-2xl'>Helpline Number</h1>
          <h1 className='text-white font-bold text-4xl'>1092</h1>

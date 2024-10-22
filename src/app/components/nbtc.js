@@ -8,7 +8,7 @@ const Helpline = () => {
   return (
     <div className='bg-red-800'>
       {/* Main container with responsive padding */}
-      <div className='bg-red-800 md:h-[30vh] flex flex-col md:flex-row justify-around px-4 md:px-60'>
+      <div className='bg-red-800 md:h-[30vh] flex flex-col md:flex-row justify-around px-10 md:px-60'>
         {/* Text Section */}
         <div className='mt-8 md:text-left'>
           <h1 className='font-bold text-white text-2xl md:text-5xl'>
@@ -17,7 +17,7 @@ const Helpline = () => {
           <h1 className='text-2xl md:text-5xl text-white font-bold mt-2'>
             Council (NBTC)
           </h1>
-          <div className=' md:w-[50%] mt-4'>
+          <div className='md:w-[50%] mt-4'>
             <p className='text-white text-sm md:text-base  md:px-0'>
               Blood Transfusion Services have to ensure that Blood/Components
               (Whole Blood/ Packed Red Cells/ Plasma/ Platelets) are Available
@@ -32,8 +32,8 @@ const Helpline = () => {
 
         {/* Download App Section */}
         <div className='mt-5 md:mt-10 gap-2 md:gap-2 flex flex-row justify-center md:flex-row items-center'>
-          <Image src={scanner1} alt="Scanner 1" className='w-[120px] h-[120px] md:w-[150px] md:h-[140px] bg-white'/>
-          <Image src={scanner2} alt="Scanner 2" className='w-[120px] h-[120px] md:w-[220px] md:h-[140px]'/>
+          <Image src={scanner1} alt="Scanner 1" className='w-[120px] h-[120px] md:w-[120px] md:h-[100px] bg-white' />
+          <Image src={scanner2} alt="Scanner 2" className='w-[120px] h-[120px] md:w-[120px] md:h-[100px]' />
         </div>
       </div>
 
