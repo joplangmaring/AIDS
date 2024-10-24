@@ -66,6 +66,7 @@ const Helpline = () => {
           </div>
         </div>
       </div>
+      <div className="border-b-[1px] border-gray-500"></div>
     </div>
   );
 };

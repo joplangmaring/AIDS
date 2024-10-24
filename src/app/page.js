@@ -9,26 +9,33 @@ import Activities  from './components/activities';
 import Form from './components/form';
 // import About from './components/about';
 import Nbtc from './components/nbtc';
+import Aidnumber from './components/aidnumber';
+import Hivpoints from './components/hivpoints';
 // import Indialogos from './components/indialogos';
-// import Footer from './components/footer';
+ import Footer from './components/footer';
 
 const page = () => {
   return (
     <div>
       <Navbar/>
       <Logos/>
-      <HivTest/>
       <Slider/>
+      <HivTest/>
+      
    
       {/* <Map/> */}
     
       {/* <About/> */}
       <Nbtc/>
+      <Aidnumber/>
       <Activities/>
-      <Helpline/>
+      <Hivpoints/>
+      {/* <Helpline/> */}
+      
       {/* <Indialogos/> */}
-      {/* <Footer/> */}
+      
       <Form/>
+      <Footer/>
     </div>
   )
 }

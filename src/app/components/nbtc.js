@@ -6,9 +6,9 @@ import frame from '../../assets/Frame.png';
 
 const Helpline = () => {
   return (
-    <div className='bg-red-800'>
+    <div className='bg-[#FE0300]'>
       {/* Main container with responsive padding */}
-      <div className='bg-red-800 md:h-[30vh] flex flex-col md:flex-row justify-around px-10 md:px-60'>
+      <div className='bg-[#FE0300] md:h-[30vh] flex flex-col md:flex-row justify-around px-10 md:px-60'>
         {/* Text Section */}
         <div className='mt-8 md:text-left'>
           <h1 className='font-bold text-white text-2xl md:text-5xl'>
