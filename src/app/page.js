@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './components/navbar';
-import Logos from './components/logos';
+import Logos from './components/ctrl-society';
 import Helpline from './components/helpline';
 import Slider from './components/slider';
 import HivTest from './components/hivtest';
