@@ -5,6 +5,7 @@ import slider1 from '../../assets/slider1.jpg';
 import slider2 from '../../assets/slider2.jpg';
 import slider3 from '../../assets/slider3.jpg';
 
+
 const images = [slider1, slider2, slider3];
 
 const Slider = () => {
@@ -24,7 +25,7 @@ const Slider = () => {
   }, []);
 
   return (
-    <div className='overflow-hidden w-full'>
+    <div className="overflow-hidden w-full"> 
       <div
         className={`flex transition-transform duration-500 ${isSliding ? 'transform' : ''}`}
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -34,7 +35,8 @@ const Slider = () => {
             <Image 
               src={image} 
               alt={`Slider ${index + 1}`} 
-              className="w-full h-auto object-cover" 
+              className="w-full h-auto object-cover" // Set height per screen size
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
             />
           </div>
         ))}
@@ -42,5 +44,6 @@ const Slider = () => {
     </div>
   );
 };
+
 
 export default Slider;

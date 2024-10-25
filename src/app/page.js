@@ -13,10 +13,12 @@ import Aidnumber from './components/aidnumber';
 import Hivpoints from './components/hivpoints';
 // import Indialogos from './components/indialogos';
  import Footer from './components/footer';
+import SmoothScroll from './components/SmoothScroll';
 
 const page = () => {
   return (
-    <div>
+    <SmoothScroll>
+    <div className='overflow-hidden'>
       <Navbar/>
       <Logos/>
       <Slider/>
@@ -37,6 +39,7 @@ const page = () => {
       <Form/>
       <Footer/>
     </div>
+     </SmoothScroll>
   )
 }
 
