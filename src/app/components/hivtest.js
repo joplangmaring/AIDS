@@ -7,31 +7,30 @@ import consultan from "../../assets/prevention.png";
 import Image from "next/image";
 import background from "../../assets/backgroundhiv.png";
 
-
 const HivTest = () => {
   const scrollContainerRef = useRef(null);
 
-  useEffect(() => {
-    const scrollContainer = scrollContainerRef.current;
-    let scrollAmount = 0;
-    const scrollStep = 1;
-    const scrollDelay = 30;
+  // useEffect(() => {
+  //   const scrollContainer = scrollContainerRef.current;
+  //   const scrollStep = 1;
+  //   const scrollDelay = 30;
 
-    const scrollInterval = setInterval(() => {
-      scrollAmount += scrollStep;
-      if (scrollContainer) {
-        scrollContainer.scrollTop = scrollAmount;
-        if (
-          scrollAmount >=
-          scrollContainer.scrollHeight - scrollContainer.clientHeight
-        ) {
-          scrollAmount = 0;
-        }
-      }
-    }, scrollDelay);
+  //   const scrollInterval = setInterval(() => {
+  //     if (scrollContainer) {
+  //       scrollContainer.scrollTop += scrollStep;
+        
+  //       // Stop scrolling when reaching the end
+  //       if (
+  //         scrollContainer.scrollTop >=
+  //         scrollContainer.scrollHeight - scrollContainer.clientHeight
+  //       ) {
+  //         clearInterval(scrollInterval); // Clear the interval to stop scrolling
+  //       }
+  //     }
+  //   }, scrollDelay);
 
-    return () => clearInterval(scrollInterval);
-  }, []);
+  //   return () => clearInterval(scrollInterval);
+  // }, []);
 
   return (
     <div className="relative flex flex-col lg:flex-row justify-center lg:gap-32 gap-8 px-4 lg:px-0">
@@ -45,8 +44,6 @@ const HivTest = () => {
       {/* Cards */}
       <div className="flex justify-center items-center p-4 z-10 my-10 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-md">
-          {" "}
-          {/* Stack vertically on mobile and two columns on md and larger */}
           {[
             { src: hivtesting, label1: "HIV", label2: "TESTING" },
             { src: consultan, label1: "HIV", label2: "PREVENTION" },
@@ -74,15 +71,15 @@ const HivTest = () => {
       </div>
 
       {/* Scrolling Content */}
-      <div className="w-full lg:w-1/3 z-10 mt-8 lg:mt-16 lg:mr-10">
+      <div className="w-full lg:w-1/3 z-10 mt-8 lg:mt-16 lg:mr-28">
         <div className="flex gap-4 justify-center">
-          <span className="bg-[#E0021C] px-4 lg:px-6 py-2 text-white text-lg lg:text-2xl rounded-t-[6px]">
+          <span className="bg-[#8B0000] px-4 lg:px-6 py-2 text-white text-lg lg:text-2xl rounded-t-[6px]">
             News
           </span>
-          <span className="bg-[#E0021C] px-4 lg:px-6 py-2 text-white text-lg lg:text-2xl rounded-t-[6px]">
+          <span className="bg-[#8B0000] px-4 lg:px-6 py-2 text-white text-lg lg:text-2xl rounded-t-[6px]">
             Tenders
           </span>
-          <span className="bg-[#E0E0E0] px-4 lg:px-6 py-2 text-black text-lg lg:text-2xl rounded-t-[6px]">
+          <span className="bg-[#8B0000] px-4 lg:px-6 py-2 text-white text-lg lg:text-2xl rounded-t-[6px]">
             Recruitment
           </span>
         </div>
@@ -90,7 +87,6 @@ const HivTest = () => {
           ref={scrollContainerRef}
           className="bg-[#f3f0f0] p-4 h-[300px] lg:h-[500px] overflow-y-auto"
         >
-          {/* Repeatable content */}
           {[...Array(8)].map((_, idx) => (
             <div key={idx} className="mx-4 lg:mx-10">
               <h1 className="font-bold">

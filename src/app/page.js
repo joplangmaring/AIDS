@@ -18,12 +18,12 @@ import SmoothScroll from './components/SmoothScroll';
 
 const page = () => {
   return (
-    <SmoothScroll>
+    // <SmoothScroll>
       <div className='overflow-hidden'>
         <Navbar />
         <Logos />
-        <Slider />
         <HivTest />
+        <Slider />
 
 
         {/* <Map/> */}
@@ -37,10 +37,10 @@ const page = () => {
 
         {/* <Indialogos/> */}
 
-        <Form />
+        {/* <Form /> */}
         <Footer />
       </div>
-    </SmoothScroll>
+    // </SmoothScroll>
   )
 }
 

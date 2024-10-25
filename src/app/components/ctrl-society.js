@@ -12,21 +12,21 @@ const Logos = () => {
         }}
       >
         {/* Left Section */}
-        <div className="flex flex-col items-start z-10 mt-14 md:mt-32 px-4 md:px-0">
+        <div className="flex flex-col  z-10 px-4 md:px-0">
           <h1 className="font-bold text-4xl md:text-6xl lg:text-7xl text-white" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
             MEGHALAYA AIDS
           </h1>
           <h1 className="font-bold text-4xl md:text-6xl lg:text-7xl text-white" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
             CONTROL SOCIETY
           </h1>
-          <div className="w-full md:w-[90%] border-b-[2px] my-3 md:my-5 border-white"></div>
+          <div className="w-full md:w-full border-b-[2px] my-3 md:my-5 border-white"></div>
   
-          <div className="text-white mt-2 md:mt-4" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-            <p className="text-sm md:text-base lg:text-[15px]">NACO envisions an India where every person living with HIV has</p>
-            <p className="text-sm md:text-base lg:text-[15px]">access to quality care and is treated with dignity.</p>
+          <div className="text-white mt-2 md:mt-2 space-y-2" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+            <p className="text-sm md:text-base lg:text-xl">NACO envisions an India where every person living with HIV has</p>
+            <p className="text-sm md:text-base lg:text-xl">access to quality care and is treated with dignity.</p>
           </div>
   
-          <div className="mt-6 md:mt-10">
+          <div className="mt-6 md:mt-20">
             <h1
               className="text-white flex items-center text-sm md:text-[15px]"
               style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
@@ -38,7 +38,7 @@ const Logos = () => {
             <div className="flex items-center mt-2 md:mt-4 border-b border-white">
               <input
                 type="text"
-                className="bg-transparent w-full text-white focus:outline-none focus:border-white placeholder-[#FFFFFF59] text-sm md:text-base"
+                className="bg-transparent px-2 py-1 w-full text-white focus:outline-none focus:border-white placeholder-[#FFFFFF59] text-sm md:text-base"
                 placeholder="Enter location or pincode"
               />
               <IoLocationSharp className="text-white" />

@@ -7,7 +7,7 @@ import footerlogo from '../../assets/footerlogo.png';
 const Footer = () => {
   return (
     <>
-      <div className="bg-[#E0021C] text-white py-5">
+      <div className="bg-[#8B0000] text-white py-5">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-5">
           
           {/* Left Section - Icon and Text */}
