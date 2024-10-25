@@ -16,6 +16,9 @@ const nextConfig = {
   
       return config;
     },
+    images: {
+      domains: ['res.cloudinary.com', 'img.freepik.com', 'drive.google.com'],
+  },
   };
   
   export default nextConfig;

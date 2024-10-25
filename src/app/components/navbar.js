@@ -56,7 +56,7 @@ const Navbar = () => {
 
 
         <div className="flex items-center flex-col leading-none">
-          <h1 className="text-[#FE0300] font-bold text-[64px] m-0 p-0">1092</h1>
+          <h1 className="text-[#8B0000] font-bold text-[64px] m-0 p-0">1092</h1>
           <h1 className="m-0 p-0 font-semibold">Call for help</h1>
         </div>
 
@@ -65,7 +65,7 @@ const Navbar = () => {
 
 
 
-      <header className={`flex w-full justify-between items-center py-1 px-4 md:px-8 transition-colors duration-500 bg-[#FE0300] text-white`}>
+      <header className={`flex w-full justify-between items-center py-1 px-4 md:px-8 transition-colors duration-500 bg-[#8B0000] text-white`}>
         <div>
           <Link href="/" className="cursor-pointer">
             <Image
@@ -106,6 +106,9 @@ const Navbar = () => {
           <Link href="/tender-and-advertisement" className="cursor-pointer font-playfair text-[16px] hover:text-gray-300 hover:scale-105 duration-100 text-md">
             TENDER AND ADVERTISEMENT
           </Link>
+          <Link href="/tender-and-advertisement" className="cursor-pointer font-playfair text-[16px] hover:text-gray-300 hover:scale-105 duration-100 text-md">
+            CONTACT
+          </Link>
         </div>
         <div className="md:hidden flex my-auto mx-5">
           <button onClick={() => setMenuOpen(!menuOpen)} className="focus:outline-none">
@@ -143,6 +146,9 @@ const Navbar = () => {
             </Link>
             <Link href="/tender-and-advertisement" className="text-white text-lg font-playfair cursor-pointer" onClick={() => setMenuOpen(false)}>
               TENDER AND ADVERTISEMENT
+            </Link>
+            <Link href="/tender-and-advertisement" className="text-white text-lg font-playfair cursor-pointer" onClick={() => setMenuOpen(false)}>
+              CONTACT
             </Link>
           </div>
         </div>

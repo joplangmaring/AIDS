@@ -9,8 +9,10 @@ import Activities  from './components/activities';
 import Form from './components/form';
 // import About from './components/about';
 import Nbtc from './components/nbtc';
+import Image from 'next/image';
 // import Indialogos from './components/indialogos';
 // import Footer from './components/footer';
+
 
 const page = () => {
   return (

@@ -22,7 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <div
-            className={`${geistSans.variable} ${geistMono.variable} antialiased `}
+            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
             <Navbar />
             <div className="flex md:flex-row flex-col">
