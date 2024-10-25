@@ -16,30 +16,32 @@ import Footer from './components/footer';
 import SmoothScroll from './components/SmoothScroll';
 
 
+
+
 const page = () => {
   return (
     // <SmoothScroll>
-      <div className='overflow-hidden'>
-        <Navbar />
-        <Logos />
-        <HivTest />
-        <Slider />
+    <div className='overflow-hidden'>
+      <Navbar />
+      <Logos />
+      <HivTest />
+      <Slider />
 
 
-        {/* <Map/> */}
+      {/* <Map/> */}
 
-        {/* <About/> */}
-        <Nbtc />
-        <Aidnumber />
-        <Activities />
-        <Hivpoints />
-        {/* <Helpline/> */}
+      {/* <About/> */}
+      <Nbtc />
+      <Aidnumber />
+      <Activities />
+      <Hivpoints />
+      {/* <Helpline/> */}
 
-        {/* <Indialogos/> */}
+      {/* <Indialogos/> */}
 
-        {/* <Form /> */}
-        <Footer />
-      </div>
+      {/* <Form /> */}
+      <Footer />
+    </div>
     // </SmoothScroll>
   )
 }
