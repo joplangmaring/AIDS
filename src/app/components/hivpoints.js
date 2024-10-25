@@ -1,63 +1,100 @@
-import React from 'react';
+// components/Footer.js
 import Image from 'next/image';
-import rebon3 from '../../assets/rebon3.jpg';
-import { VscDebugBreakpointLogUnverified } from "react-icons/vsc";
+import Link from 'next/link';
 
-const HivPoints = () => {
-    return (
-        <div className='flex flex-wrap items-center justify-center gap-6 md:gap-10 p-5 md:m-20'>
-            {/* First section */}
-            <div className="flex flex-col items-center w-full md:w-auto text-center md:text-left">
-                <div className='flex items-center justify-center md:justify-start'>
-                    <Image
-                        src={rebon3}
-                        alt="logo"
-                        width={20} 
-                        height={20}
-                        className="mr-2"
-                    />
-                    <h1 className="text-md md:text-lg text-[#FE0300] font-bold">Directory of HIV Data</h1>
-                </div>
-                <div className='mt-2'>
-                    {["Annual Report", "HIV Facts and Figures", "Surveillance & Epidemiology", "Newsletter"].map((item, index) => (
-                        <h1
-                            key={index}
-                            className='flex items-center  md:justify-start font-bold my-2 text-sm md:text-base'
-                            style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
-                        >
-                            <VscDebugBreakpointLogUnverified className="mr-1" /> {item}
-                        </h1>
-                    ))}
-                </div>
-            </div>
+import ribon from '../../assets/rebon3.jpg'
 
-            {/* Repeat Sections */}
-            {Array(3).fill(null).map((_, index) => (
-                <div className="flex flex-col items-center w-full md:w-auto text-center md:text-left" key={index}>
-                    <div className='flex items-center  md:justify-start'>
-                        <Image
-                            src={rebon3}
-                            alt="logo"
-                            width={20}
-                            height={20}
-                            className="mr-2"
-                        />
-                        <h1 className="text-md md:text-lg text-[#FE0300] font-bold" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>Directory of HIV Data</h1>
-                    </div>
-                    <div className='mt-2'>
-                        {["Annual Report", "HIV Facts and Figures", "Surveillance & Epidemiology", "Newsletter"].map((item, idx) => (
-                            <h1
-                                key={idx}
-                                className='flex items-center md:justify-start font-bold my-2 text-sm md:text-base'
-                                style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
-                            >
-                                <VscDebugBreakpointLogUnverified className="mr-1" /> {item}
-                            </h1>
-                        ))}
-                    </div>
-                </div>
-            ))}
+const Footer = () => {
+  return (
+    <footer className="bg-white p-8 border-t-4 border-red-500">
+      <div className="grid md:grid-cols-4 grid-cols-1 md:text-left text-center gap-8">
+        {/* Column 1 */}
+        <div>
+          <div className="flex items-center md:justify-start justify-center mb-4">
+            <Image src={ribon} alt="HIV Ribbon" width={10} height={10} className="mr-2" />
+            <h3 className="text-red-600 text-xl md:text-left text-center font-bold">Directory of HIV Data</h3>
+          </div>
+          <ul className="text-sm text-black">
+            <li className="mb-2">
+              <Link href="/page/hiv-figures/annual-reports" className="hover:text-red-500">▶ Annual Report</Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/page/hiv-figures/hiv-figures" className="hover:text-red-500">▶ HIV Facts and Figures</Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/page/hiv-figures/surveillance" className="hover:text-red-500">▶ Surveillance & Epidemiology</Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/page/hiv-figures/newsletter" className="hover:text-red-500">▶ Newsletter</Link>
+            </li>
+          </ul>
         </div>
-    );
+
+        {/* Column 2 */}
+        <div>
+          <div className="flex items-center md:justify-start justify-center mb-4">
+            <Image src={ribon} alt="HIV Ribbon" width={10} height={10} className="mr-2" />
+            <h3 className="text-red-600 text-xl md:text-left text-center font-bold">HIV/AIDS Awareness</h3>
+          </div>
+          <ul className="text-sm text-black">
+            <li className="mb-2">
+              <Link href="/page/hiv-figures/know-your-rights" className="hover:text-red-500">▶ Know Your Rights</Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/page/hiv-figures/youth" className="hover:text-red-500">▶ Youth</Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/page/hiv-figures/social-protection" className="hover:text-red-500">▶ Social Protection Portal</Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Column 3 */}
+        <div>
+          <div className="flex items-center md:justify-start justify-center mb-4">
+            <Image src={ribon} alt="HIV Ribbon" width={10} height={10} className="mr-2" />
+            <h3 className="text-red-600 text-xl md:text-left text-center font-bold">Partnership</h3>
+          </div>
+          <ul className="text-sm text-black">
+            <li className="mb-2">
+              <Link href="/page/hiv-figures/bilateral" className="hover:text-red-500">▶ Bilateral and Multilateral Partners</Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/page/hiv-figures/civil-society" className="hover:text-red-500">▶ Civil Society</Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/page/hiv-figures/ppp-ictc" className="hover:text-red-500">▶ Public & Private Sector Engagement</Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/page/hiv-figures/mainstreaming" className="hover:text-red-500">▶ Mainstreaming & Social Protection</Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Column 4 */}
+        <div>
+          <div className="flex items-center justify-center md:justify-start mb-4">
+            <Image src={ribon} alt="HIV Ribbon" width={10} height={10} className="mr-2" />
+            <h3 className="text-red-600 text-xl md:text-left text-center font-bold">Quick Links</h3>
+          </div>
+          <ul className="text-sm text-black">
+            <li className="mb-2">
+              <Link href="/page/hiv-figures/sacs" className="hover:text-red-500">▶ SACS</Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/page/hiv-figures/publications" className="hover:text-red-500">▶ Publications</Link>
+            </li>
+            <li className="mb-2">
+              <Link href="/page/hiv-figures/it-app-naco" className="hover:text-red-500">▶ IT Applications of NACO</Link>
+            </li>
+            <li className="mb-2">
+              <Link href="https://www.naco.gov.in/labs-life-l4l-project" className="hover:text-red-500">▶ Labs for Life Website</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  );
 };
-export default HivPoints;
+
+export default Footer;

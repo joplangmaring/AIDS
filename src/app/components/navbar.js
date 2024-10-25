@@ -7,11 +7,44 @@ import Link from "next/link";
 import naco from '../../assets/naco1.png';
 import meglogo from '../../assets/meglogo.png';
 import conrad from '../../assets/conrad.png';
-import femaleboss from '../../assets/femaleboss.png'
-
+import femaleboss from '../../assets/femaleboss.png';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(""); // Store currently open dropdown item
+
+  const handleDropdownToggle = (item) => {
+    if (window.innerWidth < 768) {
+      setDropdownOpen((prev) => (prev === item ? "" : item));
+    } else {
+      setDropdownOpen(item);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setTimeout(() => {
+      if (!document.querySelector('.dropdown-area:hover')) {
+        setDropdownOpen("");
+      }
+    }, 100);
+  };
+
+  // Utility function to sanitize link names
+  const sanitizeLinkName = (name) => {
+    return name.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, '-');
+  };
+
+  // Define the navigation items with dropdowns
+  const navItems = [
+    { name: "ABOUT US", dropdown: ["Vision and Value", "Policies and Guidelines", "Who's Who", "Annual Reports"] },
+    { name: "NACP", dropdown: ["NACP I", "NACP II", "NACP III", "NACP IV Extended"] },
+    { name: "DIVISIONS", dropdown: ["Basic Services", "ICTC in the state", "Blood Safety", "Blood Transfusion", "Licensed Blood Banks", "STI", "Care, Support and Treatment", "STATUS", "ART centres", "IEC", "IEC Resource Material", "Youth", "Mainstreaming", "Targeted Intervention", "List of TIs", "Lab Services", "Strategic Information"] },
+    { name: "LIVING WITH HIV/AIDS", dropdown: ["How to achieve a healthy living by ‘Care, Support & Treatment’", "Nutrition", "Healthy Diet", "ART Treatment", "Importance of the treatment", "Involvement of PLHIV in the community", "Grievance Redressal"] },
+    { name: "MACS IN ACTION", dropdown: ["Events", "Campaigns", "Stories"] },
+    { name: "HIV/AIDS ACTS", dropdown: ["HIV/AIDS Acts"] },
+    { name: "TENDER AND ADVERTISEMENT", dropdown: ["Tenders & Ads"] },
+    { name: "CONTACT", dropdown: ["Contact Us"] },
+  ];
 
   return (
     <>
@@ -60,8 +93,6 @@ const Navbar = () => {
         </div>
       </div>
 
-
-
       <header className={`flex w-full justify-between items-center py-1 px-4 md:px-8 transition-colors duration-500 bg-[#8B0000] text-white`}>
         <div>
           <Link href="/" className="cursor-pointer">
@@ -81,31 +112,37 @@ const Navbar = () => {
             />
           </Link>
         </div>
-        <div className="hidden md:flex text-sm space-x-10">
-          <Link href="/about" className="cursor-pointer font-playfair text-[16px] hover:text-gray-300 hover:scale-105 duration-100 text-md">
-            ABOUT US
-          </Link>
-          <Link href="/nacp" className="cursor-pointer font-playfair text-[16px] hover:text-gray-300 hover:scale-105 duration-100 text-md">
-            NACP
-          </Link>
-          <Link href="/divisions" className="cursor-pointer font-playfair text-[16px] hover:text-gray-300 hover:scale-105 duration-100 text-md">
-            DIVISIONS
-          </Link>
-          <Link href="/living-with-hiv" className="cursor-pointer font-playfair text-[16px] hover:text-gray-300 hover:scale-105 duration-100 text-md">
-            LIVING WITH HIV/AIDS
-          </Link>
-          <Link href="/macs-in-action" className="cursor-pointer font-playfair text-[16px] hover:text-gray-300 hover:scale-105 duration-100 text-md">
-            MACS IN ACTION
-          </Link>
-          <Link href="/hiv-aids-acts" className="cursor-pointer font-playfair text-[16px] hover:text-gray-300 hover:scale-105 duration-100 text-md">
-            HIV/AIDS ACTS
-          </Link>
-          <Link href="/tender-and-advertisement" className="cursor-pointer font-playfair text-[16px] hover:text-gray-300 hover:scale-105 duration-100 text-md">
-            TENDER AND ADVERTISEMENT
-          </Link>
-          <Link href="/tender-and-advertisement" className="cursor-pointer font-playfair text-[16px] hover:text-gray-300 hover:scale-105 duration-100 text-md">
-            CONTACT
-          </Link>
+        <div className="hidden md:flex text-sm space-x-10 z-50">
+          {navItems.map((item, index) => (
+            <div 
+              key={index} 
+              className="relative group dropdown-area"
+              onMouseLeave={handleMouseLeave} // Handle mouse leave for the dropdown area
+            >
+              <button
+                onMouseEnter={() => window.innerWidth >= 768 && handleDropdownToggle(item.name)} // Only open dropdown on hover for desktop
+                onClick={() => window.innerWidth < 768 && handleDropdownToggle(item.name)} // Toggle dropdown on click for mobile
+                className="cursor-pointer font-playfair text-[16px] hover:text-gray-300 hover:scale-105 duration-100 text-md"
+              >
+                {item.name}
+              </button>
+              {/* Dropdown Menu */}
+              {dropdownOpen === item.name && (
+                <div className="absolute z-10 mt-2 w-48 bg-black max-h-[50vh] overflow-scroll text-white shadow-lg">
+                  {item.dropdown.map((subItem, subIndex) => (
+                    <Link
+                      key={subIndex}
+                      href={`/page/${sanitizeLinkName(subItem)}`} // Use sanitized link
+                      className="block px-4 py-2 hover:bg-gray-800"
+                      onClick={() => setDropdownOpen("")} // Close dropdown on item click
+                    >
+                      {subItem}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
 
         {/* Hamburger Menu for Mobile */}
@@ -128,36 +165,36 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Links */}
-          <div className="flex flex-col items-center space-y-5 mt-8">
-            <Link href="/about" className="text-white text-lg font-playfair cursor-pointer" onClick={() => setMenuOpen(false)}>
-              ABOUT US
-            </Link>
-            <Link href="/nacp" className="text-white text-lg font-playfair cursor-pointer" onClick={() => setMenuOpen(false)}>
-              NACP
-            </Link>
-            <Link href="/divisions" className="text-white text-lg font-playfair cursor-pointer" onClick={() => setMenuOpen(false)}>
-              DIVISIONS
-            </Link>
-            <Link href="/living-with-hiv" className="text-white text-lg font-playfair cursor-pointer" onClick={() => setMenuOpen(false)}>
-              LIVING WITH HIV/AIDS
-            </Link>
-            <Link href="/macs-in-action" className="text-white text-lg font-playfair cursor-pointer" onClick={() => setMenuOpen(false)}>
-              MACS IN ACTION
-            </Link>
-            <Link href="/hiv-aids-acts" className="text-white text-lg font-playfair cursor-pointer" onClick={() => setMenuOpen(false)}>
-              HIV/AIDS ACTS
-            </Link>
-            <Link href="/tender-and-advertisement" className="text-white text-lg font-playfair cursor-pointer" onClick={() => setMenuOpen(false)}>
-              TENDER AND ADVERTISEMENT
-            </Link>
-            <Link href="/tender-and-advertisement" className="text-white text-lg font-playfair cursor-pointer" onClick={() => setMenuOpen(false)}>
-              CONTACT
-            </Link>
+          <div className="flex relative flex-col items-center space-y-5 mt-8">
+            {navItems.map((item, index) => (
+              <div key={index} className="">
+                <button
+                  onClick={() => handleDropdownToggle(item.name)}
+                  className="block text-white text-lg font-medium"
+                >
+                  {item.name}
+                </button>
+                {dropdownOpen === item.name && (
+                  <div className="absolute z-50 left-[5svw] mt-2 w-[90svw] max-h-[50vh] overflow-scroll bg-black text-white shadow-lg">
+                    {item.dropdown.map((subItem, subIndex) => (
+                      <Link
+                        key={subIndex}
+                        href={`/page/${sanitizeLinkName(subItem)}`} // Use sanitized link
+                        className="block px-4 py-2 hover:bg-gray-800"
+                        onClick={() => setDropdownOpen("")} // Close dropdown on item click
+                      >
+                        {subItem}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
-
       </header>
     </>
   );
 };
+
 export default Navbar;

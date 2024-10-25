@@ -11,7 +11,7 @@ const raleway = Raleway({
   subsets: ["latin"],
 });
 
-const IntouchImage = () => {
+const Form = () => {
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -48,11 +48,11 @@ const IntouchImage = () => {
 
   return (
     <div className="w-full">
-      <div className="flex flex-col lg:flex-row">
+      <div className="flex">
         {/* Left Image Section */}
-        <div className="relative w-full lg:w-[70%] h-[200px] sm:h-[300px] lg:h-auto hidden md:block">
+        {/* <div className="relative w-full lg:w-[70%] h-[200px] sm:h-[300px] lg:h-auto hidden md:block">
           <Image src={ribbon} alt="Intouch" layout="fill" objectFit="cover" />
-        </div>
+        </div> */}
 
         {/* Right Form Section */}
         <div className="relative w-full h-[auto] lg:h-auto">
@@ -62,10 +62,10 @@ const IntouchImage = () => {
             className="absolute inset-0 w-full h-full object-cover"
           />
 
-          <div className="relative bg-black bg-opacity-60 w-full flex items-center justify-center min-h-full md:min-h-[400px]">
+          <div className="relative bg-black bg-opacity-50 w-full flex items-center justify-center min-h-full md:min-h-[400px]">
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col gap-4 p-4 sm:p-8 bg-black bg-opacity-60 text-white w-full max-w-4xl"
+              className="flex flex-col gap-4 p-4 sm:p-8 bg-black bg-opacity-60 text-white w-full"
             >
               <div className="w-full p-3">
                 <div className="flex flex-col sm:flex-row gap-4 w-full">
@@ -163,4 +163,4 @@ const IntouchImage = () => {
   );
 };
 
-export default IntouchImage;
+export default Form;
