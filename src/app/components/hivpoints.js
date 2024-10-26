@@ -16,16 +16,16 @@ const Footer = () => {
           </div>
           <ul className="text-sm text-black">
             <li className="mb-2">
-              <Link href="/page/hiv-figures/annual-reports" className="hover:text-red-500">▶ Annual Report</Link>
+              <Link href="/page/annual-reports" className="hover:text-red-500">▶ Annual Report</Link>
             </li>
             <li className="mb-2">
-              <Link href="/page/hiv-figures/hiv-figures" className="hover:text-red-500">▶ HIV Facts and Figures</Link>
+              <Link href="/page/annual-reports" className="hover:text-red-500">▶ HIV Facts and Figures</Link>
             </li>
             <li className="mb-2">
-              <Link href="/page/hiv-figures/surveillance" className="hover:text-red-500">▶ Surveillance & Epidemiology</Link>
+              <Link href="/page/annual-reports" className="hover:text-red-500">▶ Surveillance & Epidemiology</Link>
             </li>
             <li className="mb-2">
-              <Link href="/page/hiv-figures/newsletter" className="hover:text-red-500">▶ Newsletter</Link>
+              <Link href="/page/annual-reports" className="hover:text-red-500">▶ Newsletter</Link>
             </li>
           </ul>
         </div>
@@ -38,13 +38,13 @@ const Footer = () => {
           </div>
           <ul className="text-sm text-black">
             <li className="mb-2">
-              <Link href="/page/hiv-figures/know-your-rights" className="hover:text-red-500">▶ Know Your Rights</Link>
+              <Link href="/page/annual-reports" className="hover:text-red-500">▶ Know Your Rights</Link>
             </li>
             <li className="mb-2">
-              <Link href="/page/hiv-figures/youth" className="hover:text-red-500">▶ Youth</Link>
+              <Link href="/page/annual-reports" className="hover:text-red-500">▶ Youth</Link>
             </li>
             <li className="mb-2">
-              <Link href="/page/hiv-figures/social-protection" className="hover:text-red-500">▶ Social Protection Portal</Link>
+              <Link href="/page/annual-reports" className="hover:text-red-500">▶ Social Protection Portal</Link>
             </li>
           </ul>
         </div>
@@ -57,16 +57,16 @@ const Footer = () => {
           </div>
           <ul className="text-sm text-black">
             <li className="mb-2">
-              <Link href="/page/hiv-figures/bilateral" className="hover:text-red-500">▶ Bilateral and Multilateral Partners</Link>
+              <Link href="/page/annual-reports" className="hover:text-red-500">▶ Bilateral and Multilateral Partners</Link>
             </li>
             <li className="mb-2">
-              <Link href="/page/hiv-figures/civil-society" className="hover:text-red-500">▶ Civil Society</Link>
+              <Link href="/page/annual-reports" className="hover:text-red-500">▶ Civil Society</Link>
             </li>
             <li className="mb-2">
-              <Link href="/page/hiv-figures/ppp-ictc" className="hover:text-red-500">▶ Public & Private Sector Engagement</Link>
+              <Link href="/page/annual-reports" className="hover:text-red-500">▶ Public & Private Sector Engagement</Link>
             </li>
             <li className="mb-2">
-              <Link href="/page/hiv-figures/mainstreaming" className="hover:text-red-500">▶ Mainstreaming & Social Protection</Link>
+              <Link href="/page/annual-reports" className="hover:text-red-500">▶ Mainstreaming & Social Protection</Link>
             </li>
           </ul>
         </div>
@@ -79,13 +79,13 @@ const Footer = () => {
           </div>
           <ul className="text-sm text-black">
             <li className="mb-2">
-              <Link href="/page/hiv-figures/sacs" className="hover:text-red-500">▶ SACS</Link>
+              <Link href="/page/annual-reports" className="hover:text-red-500">▶ SACS</Link>
             </li>
             <li className="mb-2">
-              <Link href="/page/hiv-figures/publications" className="hover:text-red-500">▶ Publications</Link>
+              <Link href="/page/annual-reports" className="hover:text-red-500">▶ Publications</Link>
             </li>
             <li className="mb-2">
-              <Link href="/page/hiv-figures/it-app-naco" className="hover:text-red-500">▶ IT Applications of NACO</Link>
+              <Link href="/page/annual-reports" className="hover:text-red-500">▶ IT Applications of NACO</Link>
             </li>
             <li className="mb-2">
               <Link href="https://www.naco.gov.in/labs-life-l4l-project" className="hover:text-red-500">▶ Labs for Life Website</Link>

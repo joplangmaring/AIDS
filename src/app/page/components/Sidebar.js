@@ -44,13 +44,13 @@ const Sidebar = () => {
                 <div className='mt-10 flex flex-col space-y-1'>
                     <h5 className='text-xl font-bold text-[#FE0300]'>Publications</h5>
                     <hr className='border-b border-black' />
-                    <Link href='/' className='text-black hover:text-[#8B0000]'>Basic Services</Link>
-                    <Link href='/' className='text-black hover:text-[#8B0000]'>Blood Safety</Link>
-                    <Link href='/' className='text-black hover:text-[#8B0000]'>Care, Support & Treatment</Link>
-                    <Link href='/' className='text-black hover:text-[#8B0000]'>Information, Education & Communication</Link>
-                    <Link href='/' className='text-black hover:text-[#8B0000]'>Sexually Transmitted Infections</Link>
+                    <Link href='/page/basic-services' className='text-black hover:text-[#8B0000]'>Basic Services</Link>
+                    <Link href='/page/blood-safety' className='text-black hover:text-[#8B0000]'>Blood Safety</Link>
+                    <Link href='/page/care-support-and-treatment' className='text-black hover:text-[#8B0000]'>Care, Support & Treatment</Link>
+                    <Link href='/page/ictc-in-the-state' className='text-black hover:text-[#8B0000]'>Information, Education & Communication</Link>
+                    <Link href='/page/sti' className='text-black hover:text-[#8B0000]'>Sexually Transmitted Infections</Link>
                     <Link href='/' className='text-black hover:text-[#8B0000]'>Targetted Interventions</Link>
-                    <Link href='/' className='text-black hover:text-[#8B0000]'>HIV Scenerio in Meghalaya</Link>
+                    <Link href='/page/status' className='text-black hover:text-[#8B0000]'>HIV Scenerio in Meghalaya</Link>
                 </div>
                 <div className='mt-10 flex flex-col space-y-1'>
                     <h5 className='text-xl font-bold text-[#FE0300]'>Services</h5>

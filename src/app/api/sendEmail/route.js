@@ -2,6 +2,7 @@ import { sendEmail } from '@/lib/nodemailer';
 
 export async function POST(req) {
   try {
+    // Parse the request body
     const { firstname, lastname, email, message } = await req.json();
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -24,10 +25,10 @@ export async function POST(req) {
 
     // Prepare the email context with the new fields
     const context = { firstname, lastname, email, message };
-    await sendEmail(context);
+    await sendEmail(context); // Send the email
 
     return new Response(
-      JSON.stringify({ success: true }),
+      JSON.stringify({ success: true, message: 'Email sent successfully' }),
       { status: 200 }
     );
   } catch (error) {
