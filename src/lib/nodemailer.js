@@ -1,6 +1,8 @@
-import nodemailer from 'nodemailer';
-import hbs from 'nodemailer-express-handlebars';
-import path from 'path';
+const nodemailer = require('nodemailer');
+const handlebars = require('handlebars');
+const fs = require('fs');
+const path = require('path');
+require('dotenv').config();
 
 const transporter = nodemailer.createTransport({
   service: 'Gmail',
@@ -10,36 +12,19 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const handlebarOptions = {
-  viewEngine: {
-    partialsDir: path.resolve('./views/'),
-    defaultLayout: false,
-  },
-  viewPath: path.resolve('./views/'),
-  extName: '.handlebars',
-};
-
-transporter.use('compile', hbs(handlebarOptions));
-
 async function sendEmail(context) {
+  const templateSource = fs.readFileSync(path.resolve('./src/views/contact.handlebars'), 'utf-8');
+  const compiledTemplate = handlebars.compile(templateSource);
+  const htmlToSend = compiledTemplate(context);
+
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_RECEIVE,
     subject: `NEW SUBMISSION FROM MACS WEBSITE: ${context.firstname} ${context.lastname}`,
-    template: 'contact',
-    context: context,
+    html: htmlToSend, // Directly use the compiled HTML
   };
 
   return transporter.sendMail(mailOptions);
 }
 
-export async function POST(req, res) {
-  try {
-    const context = await req.json();
-    await sendEmail(context);
-    return new Response(JSON.stringify({ success: true, message: 'Email sent successfully' }), { status: 200 });
-  } catch (error) {
-    console.error('Error sending email:', error);
-    return new Response(JSON.stringify({ success: false, error: 'Email failed to send' }), { status: 500 });
-  }
-}
+module.exports = { sendEmail };

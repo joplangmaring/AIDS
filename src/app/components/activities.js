@@ -6,28 +6,29 @@ import activities2 from "../../assets/actvities2.png";
 import aboutsm from "../../assets/activitiesmain.png";
 import rebon from "../../assets/rebn2.png";
 import smallrebon from "../../assets/circle.png";
-
+import bg from "../../assets/tender-bg.jpg"; // Import the background image
 
 const Helpline = () => {
   return (
-    <div className="relative">
-      {/* Background Image */}
-      <div className="flex">
+    <div className="relative min-h-[100svh] w-screen py-10">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0">
         <Image
-          src={rebon}
-          alt="Rebon background"
-          className="w-full h-[90vh] object-cover"
+          src={bg}
+          alt="Background Image"
+          layout="fill"
+          objectFit="cover"
+          className="blur-sm"
+          priority
         />
+        <div className="absolute inset-0 bg-black opacity-50"></div>
       </div>
 
       {/* Content */}
-      <div className="absolute inset-0 z-10 mx-4 md:mx-10">
+      <div className="relative z-10 mx-4 md:mx-10">
         <div className="flex flex-col items-center justify-center md:flex-row mt-10">
-          <h1 className="text-3xl md:text-5xl font-bold text-red-800 text-center p-3 md:p-5">
-            Activities and
-            <br className="hidden md:block" />{" "}
-            {/* Line break for larger screens */}
-            Initiatives
+          <h1 className="text-3xl md:text-5xl font-bold text-white text-center p-3 md:p-5">
+            Activities and Initiatives
           </h1>
         </div>
 
@@ -35,7 +36,7 @@ const Helpline = () => {
           <Image
             src={aboutsm}
             alt="About small"
-            className="w-3/4 sm:w-1/2 max-h-96 sm:max-h-72 object-contain mx-auto"
+            className="w-3/4 object-contain mx-auto"
           />
         </div>
 
@@ -78,8 +79,6 @@ const Helpline = () => {
           </div>
         </div>
       </div>
-
-      <div className="border-b-[1px] border-gray-500"></div>
     </div>
   );
 };

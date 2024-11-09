@@ -15,6 +15,7 @@ const Form = () => {
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
+    phone: "",
     email: "",
     message: "",
   });
@@ -62,7 +63,7 @@ const Form = () => {
             className="absolute inset-0 w-full h-full object-cover"
           />
 
-          <div className="relative bg-black bg-opacity-50 w-full flex items-center justify-center min-h-full md:min-h-[400px]">
+          <div className="relative bg-black bg-opacity-50 backdrop-blur-[2px] w-full flex items-center justify-center min-h-full md:min-h-[400px]">
             <form
               onSubmit={handleSubmit}
               className="flex flex-col gap-4 p-4 sm:p-8 bg-black bg-opacity-60 text-white w-full"
@@ -99,6 +100,23 @@ const Form = () => {
                       type="text"
                       id="lastname"
                       value={formData.lastname}
+                      onChange={handleChange}
+                      className="bg-transparent text-white border-b border-white w-full outline-none"
+                      required
+                    />
+                  </div>
+                </div>
+
+                {/* Phone Input */}
+                <div className="flex flex-col mt-5 w-full">
+                  <div className="mb-4 w-full">
+                    <label htmlFor="phone" className="block mb-1 font-playfair">
+                      Phone
+                    </label>
+                    <input
+                      type="text"
+                      id="phone"
+                      value={formData.phone}
                       onChange={handleChange}
                       className="bg-transparent text-white border-b border-white w-full outline-none"
                       required

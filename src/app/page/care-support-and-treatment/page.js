@@ -17,18 +17,146 @@ const CareSupportAndTreatment = () => {
             <h1 className='text-4xl font-bold text-[#8B0000]'>CARE, SUPPORT & TREATMENT</h1>
             <h2 className='text-2xl font-semibold'>CARE SUPPORT AND TREATMENT (CST)</h2>
             <p>
-                The overall goal of CST component is to provide universal access to comprehensive, equitable, stigma-free, quality care, support and treatment services to all PLHIVs in the country using an integrated approach. With the adoption of the 90:90:90 targets ie 90% of PLHIV should know their status, 90% to be on treatment and 90% to be virally suppressed, the National AIDS Control Organization has implemented the landmark step of “Treat All”- strategy which focuses on initiation of ART for all PLHIVs. All persons diagnosed with HIV infection are eligible for ART initiation regardless of CD4 count or WHO Clinical Staging, Any age (Adult-Adolescent-Children) or any population (HRG/ANC/ Migrant/etc).
+                The Care, Support and Treatment component under the National AIDS Control Programme (NACP) has been instrumental in providing access to free treatment and quality services, including psycho-social support, to the people living with HIV/AIDS. The free ART initiative launched in April 2004, has witnessed several changes in programme planning, monitoring and delivery as well as treatment regimens over the years. From being limited to the tertiary care centres, to the massive scale-up and decentralization, ART services in India have come a long way in implementing and accelerating the efforts towards improving access to treatment and retention.
             </p>
-            <h3 className='text-xl font-semibold'>AIMS:</h3>
-            <p>To provide comprehensive services to People Living with HIV (PLHIV) with respect to</p>
-            <ul className='list-disc pl-5'>
-                <li>Free Anti-Retroviral Therapy (ART)</li>
-                <li>Psychosocial support</li>
-                <li>Prevention and treatment of Opportunistic Infections (OI) including tuberculosis</li>
-                <li>Facilitating home-based care</li>
-                <li>Positive prevention and impact mitigation</li>
+            <p>The country is committed to achieving the target 3.3 of Sustainable Development Goal of Ending the AIDS epidemic as a public health threat by 2030. With the aim to achieve the UNAIDS 95-95-95 targets, various initiatives have been planned and implemented by the National AIDS Control Program (NACP) in India to improve the quality of care and treatment services and to enhance retention and adherence to Antiretroviral Therapy (ART).
+            </p>
+            <p>With the inclusion of these newer treatment and care strategies, the revised ART operational guidelines provide detailed insights on the planning, implementing, and monitoring of the programme for effective service delivery. The probable challenges in programme implementation have been well anticipated and strategies have been developed to make treatment services more patient friendly, leading to improved retention in HIV care.
+            </p>
+            <p>Currently, the free ART services are available across medical colleges, district hospitals and sub-district hospitals. In addition to government sector, National AIDS Control Organisation is also engaging with private sector for setting up of ART centres. As per the Gazette of India notification dated 28th October 2020, every teaching college should have ART centre.
+            </p>
+            <h3 className='text-xl font-semibold'>Objectives of ART centre:</h3>
+            <p>The main objective of ART Centre is to provide comprehensive package of care, support and treatment services that are effective, inclusive, equitable and adapted to needs of PLHIV.</p>
+            <h3 className='text-xl font-semibold'>Functions of ART centre:</h3>
+            <p>ART centres are mandated to give comprehensive and holistic care to PLHIV. Functions of ART centre can be categorised as medical, psycho-social and programmatic as indicated below:</p>
+            <ul className='list-decimal pl-5 space-y-2'>
+                <li>
+                    <div>
+                        <p className='font-semibold'>Medical functions:</p>
+                        <ul className='list-disc list-inside'>
+                            <li>Provide ART to all PLHIV.</li>
+                            <li>Provide baseline and follow-up investigations to PLHIV, including CD4 cell count and viral load testing.</li>
+                            <li>Provide prophylaxis and management of opportunistic infections.</li>
+                            <li>Provide TB preventive and management services.</li>
+                            <li>Identify PLHIV with advanced HIV disease for appropriate management and refer to higher level of care as needed to reduce mortality.</li>
+                            <li>Provide patient-centric differentiated care to PLHIV.</li>
+                            <li>Monitor, manage and follow up PLHIV for adherence, retention and adverse effects (if any).</li>
+                            <li>Provide treatment education and counselling on 100% adherence to therapy and retention for long-term effectiveness of ART.</li>
+                            <li>Facilitate linkage to specialist care /in-patient care, as and when necessary.</li>
+                            <li>Referral/e-referral of PLHIV with treatment failure to SACEP for review for second line/third ART and complicated adverse effects.</li>
+                            <li>Provide appropriate interventions for PPTCT and care of exposed child.</li>
+                            <li>Provide linkages with other health services, including non-communicable diseases and other co-morbidities.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <p className='font-semibold'>Psychosocial Functions:</p>
+                        <ul className='list-disc list-inside'>
+                            <li>Provide psychological support to PLHIV and caregivers.</li>
+                            <li>Provide counseling for adherence to ARV drugs.</li>
+                            <li>Educate PLHIV on proper nutrition and healthy living.</li>
+                            <li>Assist in the disclosure of HIV results to spouse/family.</li>
+                            <li>Counseling for testing of spouse/partners/children.</li>
+                            <li>Step up counseling to PLHIV who have poor adherence and are virally unsuppressed.</li>
+                            <li>Counsel for risk reduction behaviour including safe sex practices.</li>
+                            <li>Provide appropriate counselling to PLHIV belonging to special groups (key population, children, adolescents, migrants, pregnant women, etc.).</li>
+                            <li>Facilitate linkages with care and support centres to improve:
+                                <ul className='list-image-none list-inside ml-8'>
+                                    <li>- Retention for sustained viral suppression.</li>
+                                    <li>- Access to social protection schemes provided by various line ministries under central and state government.</li>
+                                </ul>
+
+                            </li>
+                        </ul>
+
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <p className='font-semibold'>Programmatic Functions:</p>
+                        <ul className='list-disc list-inside'>
+                            <li>Contribute to achieving goal of 95:95:95 to 'End the AIDS' epidemic as a public health threat by 2030 in line with Sustainable Development Goals (SDG).</li>
+                            <li>Proper recording and timely reporting as per national guidelines.</li>
+                            <li>Tracking of missed ART refill (MIS) and lost to follow-up (LFU) cases in coordination with DAPCU, CSC, ICTC, link workers, TI NGO, and other NGO approved by NACO/SACS.</li>
+                            <li>Coordination with National Tuberculosis Elimination Programme (NTEP) for management of HIV-TB co-infected patients and to ensure availability of drugs for anti-TB treatment (ATT) and TB preventive treatment (TPT).</li>
+                            <li>Mentoring the LAC and coordination with LAC staff for ARV drug indent, monthly reporting CD4, and viral load test.</li>
+                            <li>Sensitize the hospital staff on care support and treatment (CST) services.</li>
+                        </ul>
+
+
+                    </div>
+                </li>
             </ul>
-            <h3 className='text-xl font-semibold'>SERVICE DELIVERY MECHANISM FOR CARE, SUPPORT & TREATMENT:</h3>
+
+
+            <h3 className='text-xl font-semibold'>Link ART Centres:</h3>
+            <p>The Differentiated service delivery model for decentralized ART services near the patient's residence. These sites could be community health centres, primary health centres, opioid substitution therapy centres; care and support centres and targeted intervention sites and other community level sites at NGOs/ CBOs/ CSOs. The goal of this model is to make the treatment services easily accessible to PLHIV and promote adherence by addressing the barriers associated with inconvenience due to frequent visits, need for long travel distance and cost to the patients. These centres are linked to a nodal ART centre and function as its outreach units. The main functions of LACs include monitoring PLHIV on ART, drug refill to patients on ART, treatment of minor OIs, identification and management of adverse effects and reinforce adherence on every visit. </p>
+
+            <h3 className='text-xl font-semibold'>Functions of Link ART centres</h3>
+            <p>The main functions of Link ART centres are indicated below: </p>
+            <ul className='list-disc list-inside'>
+                <li><strong>Drug refill:</strong> LAC shall be responsible for ARV drugs refill to stable patients on ART linked out from nodal ART centre following established procedure. LAC shall not initiate/modify ART for any patient at any point of time.</li>
+                <li><strong>Monitoring of PLHIV on ART:</strong> LAC shall monitor the linked outpatients on ART in terms of drug adherence, adverse effects of drugs and opportunistic infections. LAC shall also be responsible for patient follow-up to maintain optimum drug adherence, prevent and trace MIS and LFU cases. Referral to the ART centre shall be required in case of major OI, serious side effect of drugs etc.</li>
+                <li><strong>OI prophylaxis and treatment:</strong> Depending upon the capacity including diagnostic facilities and drugs, LAC shall identify, treat OIs and provide in-patient care whenever required. However, after stabilization/treatment, patient should be sent back to ART centre for evaluation of possible treatment failure. LAC shall also continue CPT and TPT as prescribed by nodal ART centre. Drugs for prophylaxis and treatment of common OIs like cotrimoxazole, metronidazole etc. shall be provided through the health facility. LAC in community setting which do not have facilities to manage OIs will refer the PLHIV to nodal ART centre/nearest health facility at the earliest.</li>
+                <li><strong>Screening of PLHIV for TB symptoms:</strong> All PLHIV shall be screened for TB during every visit and all patients with symptoms of TB should be referred to the ART centre or NTEP facility whichever is nearest for diagnosis and if found infected with TB, should be sent back to nodal ART centre for appropriate management. HIV-TB line list should be maintained.</li>
+                <li><strong>Tracing MIS and LFU:</strong> Daily due list of PLHIV on ART shall be maintained by LAC. The MIS/LFU cases shall be traced by counsellor through phone and outreach. Concerned ICTC, Link Workers, CSC and other outreach workers should also be involved in tracing of MIS/LFU cases.</li>
+                <li><strong>Psychosocial functions:</strong> LAC staff shall provide psychological support, counselling on adherence, nutritional and positive prevention to PLHIV accessing the Link ART centre.</li>
+            </ul>
+
+            <h3 className='text-xl font-semibold'>Name of ART Centers in the State:</h3>
+            <ul className='list-decimal list-inside'>
+                <li>ART Plus Centre, Civil Hospital, Shillong (Under NACP)
+                </li>
+                <li>ART Centre, NEIGRIHMS.
+                </li>
+                <li>ART Centre, Jowai Civil Hospital. (Under NACP)
+                </li>
+                <li>ART Centre, Tura Civil Hospital. (Under NACP)
+                </li>
+            </ul>
+
+            <h3 className='text-xl font-semibold'>Name of Linked ART Centers in the State:</h3>
+            <ul className='list-decimal list-inside'>
+                <li><strong>Nodal ART Centre:</strong> Civil Hospital, Shillong</li>
+                <ul className='list-decimal list-inside pl-5'>
+                    <li>Link ART Centre, Nongstoin Civil Hospital</li>
+                    <li>Link ART Centre, Pynursla CHC</li>
+                    <li>Link ART Centre, Sohra CHC</li>
+                    <li>Link ART Centre, Mawryngkneng CHC</li>
+                    <li>Link ART Centre, Umsning CHC</li>
+                    <li>Link ART Centre, Bhoirymbong CHC</li>
+                    <li>Link ART Centre, Nongpoh Civil Hospital</li>
+                    <li>Link ART Centre, Byrnihat PHC</li>
+                    <li>Link ART Centre, Mawkyrwat CHC</li>
+                </ul>
+
+                <li><strong>Nodal ART Centre:</strong> Jowai Civil Hospital</li>
+                <ul className='list-decimal list-inside pl-5'>
+                    <li>Link ART Centre, Khliehriat CHC</li>
+                    <li>Link ART Centre, Sutnga CHC</li>
+                    <li>Link ART Centre, Umkiang PHC</li>
+                    <li>Link ART Centre, Nartiang CHC</li>
+                    <li>Link ART Centre, Laskein PHC</li>
+                </ul>
+
+                <li><strong>Nodal ART Centre:</strong> Tura Civil Hospital</li>
+                <ul className='list-decimal list-inside pl-5'>
+                    <li>Link ART Centre, Williamnagar Civil Hospital</li>
+                    <li>Link ART Centre, Baghmara Civil Hospital</li>
+                    <li>Link ART Centre, Ampati Civil Hospital</li>
+                    <li>Link ART Centre, Resubelpara CHC</li>
+                    <li>Link ART Centre, Phulbari CHC</li>
+                    <li>Link ART Centre, Rongjeng CHC</li>
+                </ul>
+            </ul>
+
+
+
+
+
+
+            {/* <h3 className='text-xl font-semibold'>SERVICE DELIVERY MECHANISM FOR CARE, SUPPORT & TREATMENT:</h3>
             <p>
                 CST services are provided through dedicated ART centres established in health facilities. These are linked to Centres of Excellence (CoE) and ART Plus Centres. The services have been decentralised through Link ART Centres (LAC). ART centres are also linked to ICTCs, STI clinics, PPTCT services and other clinical departments in the institutions. They are also linked with the Revised National Tuberculosis Control Programme (RNTCP), in order to ensure proper management of TB-HIV co-infected patients.
             </p>
@@ -153,13 +281,13 @@ const CareSupportAndTreatment = () => {
                 </tbody>
             </table>
             <div className='px-10 py-10'>
-            <strong className='text-xl'>SERVICES AVAILABLE IN MEGHALAYA:</strong>
-            <ul className='mt-4 list-disc list-inside'>
-                {services.map((service, index) => (
-                    <li key={index} className='py-1'>{service}</li>
-                ))}
-            </ul>
-        </div>
+                <strong className='text-xl'>SERVICES AVAILABLE IN MEGHALAYA:</strong>
+                <ul className='mt-4 list-disc list-inside'>
+                    {services.map((service, index) => (
+                        <li key={index} className='py-1'>{service}</li>
+                    ))}
+                </ul>
+            </div> */}
         </div>
     );
 };

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Meghalogo from '../../assets/aidlogo.png'; // Adjust the path as necessary
 import Link from "next/link";
 import naco from '../../assets/naco1.png';
+import naco_new from '../../assets/naco_logo_new.png';
 import meglogo from '../../assets/meglogo.png';
 import conrad from '../../assets/conrad.png';
 import femaleboss from '../../assets/femaleboss.png';
@@ -48,50 +49,38 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row items-center justify-between py-4 px-4 bg-white overflow-hidden">
+      <div className="flex md:flex-row items-center justify-between py-4 px-4 bg-white overflow-hidden">
         {/* Left Logo */}
-        <div className="flex w-1/3 md:w-[10%] justify-center md:justify-start">
-          <Image src={naco} alt="NACO Logo" className="h-auto w-full object-contain" />
+        <div className="flex w-1/2 md:w-[10%] justify-center md:justify-start">
+          <Image src={naco_new} alt="NACO Logo" className="h-auto w-full object-contain" />
         </div>
 
         {/* Center Text */}
-        <div className="flex flex-col w-full md:w-[70%] text-center md:text-left mt-4 md:mt-0">
-          <h1 className="text-xl md:text-4xl font-semibold">Department of Health and Family Welfare</h1>
-          <h2 className="text-lg md:text-2xl font-semibold text-red-600">Government of Meghalaya</h2>
+        <div className="flex flex-col w-full md:w-[70%] md:text-left md:mt-0 px-5">
+          <h1 className="text-md md:text-4xl font-bold">Department of Health and Family Welfare</h1>
+          <h2 className="text-sm md:text-2xl font-semibold text-red-600">Government of Meghalaya</h2>
         </div>
 
         {/* Right Logos */}
-        <div className="flex w-1/3 md:w-[6%] justify-center lg:justify-end gap-6 md:gap-10 mt-4 md:mt-0">
-          <Image src={meglogo} alt="Meghalaya Government Logo" className="h-auto w-full object-contain" />
-          <Image src={Meghalogo} alt="Meghalaya AIDS Logo" className="h-auto w-full object-contain" />
+        <div className="md:flex hidden w-1/3 md:w-[6%] justify-center lg:justify-end gap-6 md:gap-10 mt-4 md:mt-0">
+          <Image src={meglogo} alt="Meghalaya Government Logo" className="md:h-auto md:w-full h-1/2 w-1/2 object-contain" />
+          <Image src={Meghalogo} alt="Meghalaya AIDS Logo" className="md:h-auto md:w-full h-1/2 w-1/2 object-contain" />
         </div>
       </div>
 
       <div className="border-b-[1px] border-gray-500"></div>
 
-      {/* Chief Minister and Health Minister Section */}
-      <div className="flex flex-col md:flex-row justify-between items-center mx-7 my-3">
-        <div className="flex items-center mb-6 md:mb-0">
-          <Image src={conrad} alt="Chief Minister" className="w-16 h-16 md:w-28 md:h-28 object-cover rounded-full" />
-          <div className="ml-4">
-            <h1 className="font-bold">Chief Minister of Meghalaya</h1>
-            <h1>Shri Conrad K. Sangma</h1>
-          </div>
-        </div>
-
-        <div className="flex items-center mb-6 md:mb-0">
-          <Image src={femaleboss} alt="Health Minister" className="w-16 h-16 md:w-28 md:h-28 object-cover rounded-full" />
-          <div className="ml-4 md:text-left">
-            <h1 className="font-bold">Minister of Health & Family Welfare</h1>
-            <h1>Dr. Mazel Ampareen Lyngdoh</h1>
-          </div>
-        </div>
-
+      {/* Right Logos */}
+      <div className="flex w-full md:hidden justify-between items-center px-5 py-3 md:mt-0">
+        <Image src={meglogo} alt="Meghalaya Government Logo" className="h-1/6 w-1/6 object-contain" />
         <div className="flex items-center flex-col leading-none">
-          <h1 className="text-[#8B0000] font-bold text-[64px] m-0 p-0">1092</h1>
+          <h1 className="text-[#8B0000] font-black text-[36px] m-0 p-0">1092</h1>
           <h1 className="m-0 p-0 font-semibold">Call for help</h1>
         </div>
+        <Image src={Meghalogo} alt="Meghalaya AIDS Logo" className="h-1/6 w-1/6 object-contain" />
       </div>
+
+
 
       <header className={`flex w-full justify-between items-center py-1 px-4 md:px-8 transition-colors duration-500 bg-[#8B0000] text-white`}>
         <div>
@@ -114,8 +103,8 @@ const Navbar = () => {
         </div>
         <div className="hidden md:flex text-sm space-x-10 z-50">
           {navItems.map((item, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="relative group dropdown-area"
               onMouseLeave={handleMouseLeave} // Handle mouse leave for the dropdown area
             >
@@ -181,7 +170,10 @@ const Navbar = () => {
                         key={subIndex}
                         href={`/page/${sanitizeLinkName(subItem)}`} // Use sanitized link
                         className="block px-4 py-2 hover:bg-gray-800"
-                        onClick={() => setDropdownOpen("")} // Close dropdown on item click
+                        onClick={() => {
+                          setDropdownOpen("");  // Close the dropdown
+                          setMenuOpen(false);    // Close the mobile menu
+                        }}
                       >
                         {subItem}
                       </Link>

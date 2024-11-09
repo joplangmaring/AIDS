@@ -1,13 +1,21 @@
-// components/Footer.js
 import Image from 'next/image';
 import Link from 'next/link';
 
-import ribon from '../../assets/rebon3.jpg'
+import ribon from '../../assets/rebon3.jpg';
+import footerBg from '../../assets/footer_bg.jpg';
 
 const Footer = () => {
   return (
-    <footer className="bg-white p-8 border-t-4 border-red-500">
-      <div className="grid md:grid-cols-4 grid-cols-1 md:text-left text-center gap-8">
+    <footer className="relative p-8 border-t-4 border-red-500">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center filter blur-sm"
+        style={{
+          backgroundImage: `url(${footerBg.src})`,
+        }}
+      ></div>
+      
+      <div className="relative z-10 grid md:grid-cols-4 grid-cols-1 md:text-left text-center gap-8 bg-white bg-opacity-70 p-8 rounded-lg">
         {/* Column 1 */}
         <div>
           <div className="flex items-center md:justify-start justify-center mb-4">
