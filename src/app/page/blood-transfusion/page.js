@@ -2,27 +2,37 @@ import React from 'react';
 
 const BloodTransfusionServices = () => {
     return (
-        <div className='p-6 bg-white text-gray-800'>
+        <div className='p-6 px-10 bg-white text-gray-800'>
             <h1 className='text-2xl font-bold mb-4'>BLOOD TRANSFUSION SERVICES: MEGHALAYA (2018-19)</h1>
 
             <section className='mb-6'>
                 <h2 className='text-xl font-semibold mb-2'>Background</h2>
                 <p className='mb-2'>
-                    Blood is an intrinsic requirement for health care and proper functioning of the health system. 
-                    Provision of safe blood is vital, as it safeguards human life.
+                    Blood transfusion services plays a vital role in saving lives during surgeries, trauma situations, childbirth complications and for patients with certain medical conditions like anemia, cancer and undergoing hemodialysis.
                 </p>
                 <p className='mb-2'>
-                    Blood Transfusion Services (BTS) is a vital part of health care. A well-organized blood transfusion 
-                    service with quality systems in all areas is essential for the safe and effective use of blood and blood 
-                    products through a network of licensed blood banks and storage centers with trained manpower.
+                    Blood transfusion services ensure that blood is collected, processed, tested, stored and distributed safely to meet the demand for blood products in healthcare settings. Strict protocols and guidelines are followed to maintain the quality and safety of blood supply including thorough screening of donors, testing for infections, proper storage methods and matching blood types to recipients. These services help in managing blood shortages and emergencies by organizing blood donation drives and encouraging regular blood donations from the community.
                 </p>
                 <p>
-                    The objective of BTS is to eliminate blood scarcity and ensure safe, quality blood and components 
-                    are available year-round, even in remote areas.
+                    Overall blood transfusion services is essential for providing timely and life saving intervention to patients in need of blood transfusion services.
                 </p>
             </section>
 
-            <section className='mb-6'>
+            <h2 className='text-xl font-semibold mb-2'>Name of Blood Centres in Meghalaya</h2>
+            <ul className='list-disc list-inside space-y-2'>
+                <li>Regional Blood Centre, Pasteur Institute, Lawmali, Shillong</li>
+                <li>Blood Centre, NEIGRIHMS, Mawdiangdiang, Shillong</li>
+                <li>Blood Centre, Nazareth Hospital, Laitumkhrah, Shillong</li>
+                <li>Blood Centre, Dr.H.Gordon Roberts Hospital, Jaiaw, Shillong</li>
+                <li>Blood Centre, Military Hospital, Shillong</li>
+                <li>Blood Centre, Nongpoh Civil Hospital, Nongpoh, Ri Bhoi</li>
+                <li>Blood Centre, Nongstoin Civil Hospital, Nongstoin</li>
+                <li>Blood Centre, Jowai Civil Hospital, Panaliar</li>
+                <li>Blood Centre, Tura Civil Hospital, Tura</li>
+                <li>Blood Centre, Williamnagar Civil Hospital, Williamnagar</li>
+            </ul>
+
+            <section className='my-6'>
                 <h2 className='text-xl font-semibold mb-2'>Key Strategies</h2>
                 <ul className='list-disc list-inside'>
                     <li>Assessing blood needs for the state.</li>
@@ -37,14 +47,14 @@ const BloodTransfusionServices = () => {
                 <h2 className='text-xl font-semibold mb-2'>Current Scenario</h2>
                 <h3 className='text-lg font-semibold mt-4'>Regional Blood Transfusion Centre (RBTC)</h3>
                 <p>
-                    Established at the Regional Blood Bank, Pasteur Institute, Shillong in 1990, the RBTC ensures blood 
+                    Established at the Regional Blood Bank, Pasteur Institute, Shillong in 1990, the RBTC ensures blood
                     screening and supports licensed government and charitable blood banks in the state.
                 </p>
 
                 <h3 className='text-lg font-semibold mt-4'>State Blood Transfusion Council (SBTC), Meghalaya</h3>
                 <p>
-                    The SBTC, formed on March 7, 1997, is responsible for implementing blood transfusion services across 
-                    the state, coordinating with the State AIDS Control Society to streamline services in accordance with 
+                    The SBTC, formed on March 7, 1997, is responsible for implementing blood transfusion services across
+                    the state, coordinating with the State AIDS Control Society to streamline services in accordance with
                     the National Blood Policy.
                 </p>
 

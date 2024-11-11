@@ -18,7 +18,7 @@ module.exports = {
         },
       },
       animation: {
-        riseUp: 'riseUp 0.5s ease-out',
+        riseUp: 'riseUp 0.8s ease-out',
       },
     },
   },

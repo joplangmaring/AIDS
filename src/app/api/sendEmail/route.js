@@ -2,13 +2,12 @@ import { sendEmail } from '@/lib/nodemailer';
 
 export async function POST(req) {
   try {
-    // Parse the request body
-    const { firstname, lastname, email, message } = await req.json();
+    const { firstname, lastname, phone, email, message } = await req.json();
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     // Validate input fields
-    if (!firstname || !lastname || !email || !message) {
+    if (!firstname || !lastname || !phone || !email || !message) {
       return new Response(
         JSON.stringify({ success: false, error: 'All fields are required' }),
         { status: 400 }
@@ -24,8 +23,8 @@ export async function POST(req) {
     }
 
     // Prepare the email context with the new fields
-    const context = { firstname, lastname, email, message };
-    await sendEmail(context); // Send the email
+    const context = { firstname, lastname, phone, email, message };
+    await sendEmail(context);
 
     return new Response(
       JSON.stringify({ success: true, message: 'Email sent successfully' }),

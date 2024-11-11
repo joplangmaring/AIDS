@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
         >
             <Navbar />
             <div className="flex md:flex-row flex-col">
-                <Sidebar />
+                {/* <Sidebar /> */}
                 {children}
             </div>
             <Hivpoints />

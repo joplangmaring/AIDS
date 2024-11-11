@@ -14,6 +14,8 @@ import Hivpoints from './components/hivpoints';
 // import Indialogos from './components/indialogos';
 import Footer from './components/footer';
 import SmoothScroll from './components/SmoothScroll';
+import Officials from './components/Officials';
+import ComplaintForm from './components/ComplaintForm';
 
 
 
@@ -23,6 +25,7 @@ const page = () => {
     // <SmoothScroll>
     <div className='overflow-hidden'>
       <Navbar />
+      <Officials />
       <Logos />
       <HivTest />
       <Slider />
@@ -34,6 +37,7 @@ const page = () => {
       <Nbtc />
       <Aidnumber />
       <Activities />
+      <ComplaintForm />
       <Hivpoints />
       {/* <Helpline/> */}
 

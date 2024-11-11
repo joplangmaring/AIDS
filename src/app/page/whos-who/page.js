@@ -45,26 +45,28 @@ const Page = () => {
             <h1 className='text-4xl font-bold text-[#8B0000]'>Who’s Who</h1>
             <hr />
             <h2 className='text-2xl font-semibold mt-5'>MEGHALAYA AIDS CONTROL SOCIETY KEY CONTACTS</h2>
-            <table className='min-w-full border-collapse border border-gray-300 mt-5'>
-                <thead>
-                    <tr className='bg-[#8B0000] text-white'>
-                        <th className='border border-gray-300 px-4 py-2'>Name</th>
-                        <th className='border border-gray-300 px-4 py-2'>Designation</th>
-                        <th className='border border-gray-300 px-4 py-2'>Contact No.</th>
-                        <th className='border border-gray-300 px-4 py-2'>Email ID</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {contacts.map((contact, index) => (
-                        <tr key={index} className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}>
-                            <td className='border border-gray-300 px-4 py-2'>{contact.name}</td>
-                            {contact.designation && <td className='border border-gray-300 px-4 py-2'>{contact.designation}</td>}
-                            {contact.designation && <td className='border border-gray-300 px-4 py-2'>{contact.contact}</td>}
-                            {contact.designation && <td className='border border-gray-300 px-4 py-2'>{contact.email}</td>}
+            <div className='overflow-x-scroll'>
+                <table className='min-w-full border-collapse border border-gray-300 mt-5'>
+                    <thead>
+                        <tr className='bg-[#8B0000] text-white'>
+                            <th className='border border-gray-300 px-4 py-2'>Name</th>
+                            <th className='border border-gray-300 px-4 py-2'>Designation</th>
+                            <th className='border border-gray-300 px-4 py-2'>Contact No.</th>
+                            <th className='border border-gray-300 px-4 py-2'>Email ID</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {contacts.map((contact, index) => (
+                            <tr key={index} className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}>
+                                <td className='border border-gray-300 px-4 py-2'>{contact.name}</td>
+                                {contact.designation && <td className='border border-gray-300 px-4 py-2'>{contact.designation}</td>}
+                                {contact.designation && <td className='border border-gray-300 px-4 py-2'>{contact.contact}</td>}
+                                {contact.designation && <td className='border border-gray-300 px-4 py-2'>{contact.email}</td>}
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
             <h2 className='text-xl font-semibold mt-10'>Office Address:</h2>
             <p>OFFICE OF THE PROJECT DIRECTOR</p>
             <p>MEGHALAYA AIDS CONTROL SOCIETY</p>

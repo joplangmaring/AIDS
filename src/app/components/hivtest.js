@@ -6,7 +6,7 @@ import hand from "../../assets/hand.png";
 import treat from "../../assets/treat.png";
 import consultan from "../../assets/prevention.png";
 import Image from "next/image";
-import background from "../../assets/backgroundhiv.png";
+import background from "../../assets/cards_bg.jpg";
 import { useAnimation, motion } from 'framer-motion';
 
 const HivTest = () => {
@@ -20,17 +20,17 @@ const HivTest = () => {
   };
 
   return (
-    <div className="relative flex flex-col lg:flex-row justify-center lg:gap-32 gap-8 px-4 lg:px-0">
-      {/* Background Image */}
+    <div className="relative flex flex-col lg:flex-row justify-center lg:gap-32 md:gap-8 md:px-4 md:py-28 lg:px-0 -z-10">
+      {/* Background Image with Blur */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center filter blur-sm"
         style={{ backgroundImage: `url(${background.src})` }}
       />
       <div className="absolute inset-0 bg-[#000000B2] z-0" />
 
       {/* Cards */}
-      <div className="flex justify-center items-center p-4 z-10 my-10 w-full px-20">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full">
+      <div className="flex justify-center items-center md:p-4 z-10 my-10 w-full md:px-20 px-5">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full py-10 md:py-0">
           {[
             { src: hivtesting, label1: "HIV", label2: "TESTING" },
             { src: consultan, label1: "HIV", label2: "PREVENTION" },
@@ -53,16 +53,16 @@ const HivTest = () => {
                 initial="hidden"
                 animate={controls}
                 variants={animationVariant}
-                className="flex flex-col items-center justify-between text-center p-2 rounded-md shadow-md w-full"
+                className="flex flex-col items-center justify-between text-center p-2 rounded-md w-full"
               >
                 <Image
                   src={item.src}
                   alt={item.label1}
                   width={208}
                   height={208}
-                  className="bg-white object-contain h-52 w-full rounded-t-2xl shadow-[0_4px_10px_rgba(0,0,0,0.5)]"
+                  className="bg-white object-contain md:h-72 h-48 w-full rounded-t-2xl shadow-[0_4px_10px_rgba(0,0,0,0.5)]"
                 />
-                <div className="bg-red-800 w-full flex flex-col rounded-b-2xl p-2">
+                <div className="bg-red-800 w-full flex flex-col p-2">
                   <span className="text-white text-sm">{item.label1}</span>
                   <span className="text-white text-sm">{item.label2}</span>
                 </div>
