@@ -45,14 +45,14 @@ const SearchBar = () => {
   }, [dropdownRef]);
 
   return (
-    <div className="mt-16 md:bottom-16 flex flex-col justify-center py-4">
+    <div className="mt-16 md:bottom-16 flex flex-col justify-center py-4 z-50">
       <div className='flex space-x-2 mb-4 items-center'>
         <div className="bg-red-600 rounded-full p-2 h-fit">
           <IoLocationOutline className="text-white text-3xl w-fit" />
         </div>
         <h1 className="text-white text-3xl font-bold mt-1 pl-2">Find your nearest testing centre</h1>
       </div>
-      <div className='flex flex-col relative md:w-full' ref={dropdownRef}>
+      <div className='flex flex-col relative md:w-full z-50' ref={dropdownRef}>
         <input
           type="text"
           value={search}
@@ -64,7 +64,7 @@ const SearchBar = () => {
 
         {/* Dropdown for post offices */}
         {showDropdown && postOffices.length > 0 && (
-          <ul className="absolute top-12 left-0 right-0 bg-white border border-gray-300 max-h-60 overflow-auto z-10 rounded shadow-lg">
+          <ul className="absolute top-12 left-0 right-0 bg-white border border-gray-300 max-h-60 overflow-auto z-50 rounded shadow-lg">
             {postOffices.map((office) => (
               <li
                 key={office._id}
@@ -99,12 +99,12 @@ const Logos = () => {
       {/* Left Section */}
       <div className="flex flex-col z-10 px-5 md:px-0 py-20">
         <div className='overflow-hidden'>
-          <h1 className="animate-riseUp font-bold text-4xl md:text-6xl lg:text-7xl text-white" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+          <h1 className="animate-riseUp font-bold text-5xl md:text-6xl lg:text-8xl text-white" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
             MEGHALAYA AIDS
           </h1>
         </div>
         <div className='overflow-hidden'>
-          <h1 className="animate-riseUp font-bold text-4xl md:text-6xl lg:text-7xl text-white" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+          <h1 className="animate-riseUp font-bold text-5xl md:text-6xl lg:text-8xl text-white" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
             CONTROL SOCIETY
           </h1>
         </div>
@@ -119,7 +119,7 @@ const Logos = () => {
       </div>
 
       {/* Right Section */}
-      <div className="z-10 mt-10 md:mt-56">
+      <div className="z-0 md:mt-64">
         <Image src={person} alt="Person" width={250} mdWidth={150} />
       </div>
     </div>

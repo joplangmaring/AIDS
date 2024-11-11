@@ -15,7 +15,7 @@ const Footer = () => {
         }}
       ></div>
       
-      <div className="relative z-10 grid md:grid-cols-4 grid-cols-1 md:text-left text-center gap-8 bg-white bg-opacity-70 p-8 rounded-lg">
+      <div className="relative z-10 grid md:grid-cols-4 grid-cols-1 md:text-left gap-8 bg-white bg-opacity-70 p-8 rounded-lg">
         {/* Column 1 */}
         <div>
           <div className="flex items-center md:justify-start justify-center mb-4">

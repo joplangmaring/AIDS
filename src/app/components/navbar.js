@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -12,7 +12,7 @@ import femaleboss from '../../assets/femaleboss.png';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(""); // Store currently open dropdown item
+  const [dropdownOpen, setDropdownOpen] = useState("");
 
   const handleDropdownToggle = (item) => {
     if (window.innerWidth < 768) {
@@ -30,15 +30,18 @@ const Navbar = () => {
     }, 100);
   };
 
-  // Utility function to sanitize link names
   const sanitizeLinkName = (name) => {
     return name.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, '-');
   };
 
-  // Define the navigation items with dropdowns
   const navItems = [
     { name: "ABOUT US", dropdown: ["Vision and Value", "Policies and Guidelines", "Who's Who", "Annual Reports"] },
-    { name: "NACP", dropdown: ["NACP I", "NACP II", "NACP III", "NACP IV Extended"] },
+    { name: "NACP", dropdown: [
+      { title: "NACP I", color: "#FFCCCC" },
+      { title: "NACP II", color: "#CCFFCC" },
+      { title: "NACP III", color: "#CCCCFF" },
+      { title: "NACP IV Extended", color: "#FFD700" }
+    ]},
     { name: "DIVISIONS", dropdown: ["Basic Services", "ICTC in the state", "Blood Safety", "Blood Transfusion", "Licensed Blood Banks", "STI", "Care, Support and Treatment", "STATUS", "ART centres", "IEC", "IEC Resource Material", "Youth", "Mainstreaming", "Targeted Intervention", "List of TIs", "Lab Services", "Strategic Information"] },
     { name: "LIVING WITH HIV/AIDS", dropdown: ["How to achieve a healthy living by ‘Care, Support & Treatment’", "Nutrition", "Healthy Diet", "ART Treatment", "Importance of the treatment", "Involvement of PLHIV in the community", "Grievance Redressal"] },
     { name: "MACS IN ACTION", dropdown: ["Events", "Campaigns", "Stories"] },
@@ -70,18 +73,6 @@ const Navbar = () => {
 
       <div className="border-b-[1px] border-gray-500"></div>
 
-      {/* Right Logos */}
-      <div className="flex w-full md:hidden justify-between items-center px-5 py-3 md:mt-0">
-        <Image src={meglogo} alt="Meghalaya Government Logo" className="h-1/6 w-1/6 object-contain" />
-        <div className="flex items-center flex-col leading-none">
-          <h1 className="text-[#8B0000] font-black text-[36px] m-0 p-0">1092</h1>
-          <h1 className="m-0 p-0 font-semibold">Call for help</h1>
-        </div>
-        <Image src={Meghalogo} alt="Meghalaya AIDS Logo" className="h-1/6 w-1/6 object-contain" />
-      </div>
-
-
-
       <header className={`flex w-full justify-between items-center py-1 px-4 md:px-8 transition-colors duration-500 bg-[#8B0000] text-white`}>
         <div>
           <Link href="/" className="cursor-pointer">
@@ -106,26 +97,28 @@ const Navbar = () => {
             <div
               key={index}
               className="relative group dropdown-area"
-              onMouseLeave={handleMouseLeave} // Handle mouse leave for the dropdown area
+              onMouseLeave={handleMouseLeave}
             >
               <button
-                onMouseEnter={() => window.innerWidth >= 768 && handleDropdownToggle(item.name)} // Only open dropdown on hover for desktop
-                onClick={() => window.innerWidth < 768 && handleDropdownToggle(item.name)} // Toggle dropdown on click for mobile
+                onMouseEnter={() => window.innerWidth >= 768 && handleDropdownToggle(item.name)}
+                onClick={() => window.innerWidth < 768 && handleDropdownToggle(item.name)}
                 className="cursor-pointer font-playfair text-[16px] hover:text-gray-300 hover:scale-105 duration-100 text-md"
               >
                 {item.name}
               </button>
-              {/* Dropdown Menu */}
               {dropdownOpen === item.name && (
                 <div className="absolute z-10 mt-2 w-48 bg-black max-h-[50vh] overflow-scroll text-white shadow-lg">
                   {item.dropdown.map((subItem, subIndex) => (
                     <Link
                       key={subIndex}
-                      href={`/page/${sanitizeLinkName(subItem)}`} // Use sanitized link
-                      className="block px-4 py-2 hover:bg-gray-800"
-                      onClick={() => setDropdownOpen("")} // Close dropdown on item click
+                      href={`/page/${sanitizeLinkName(subItem.title || subItem)}`}
+                      className="block px-4 py-2 hover:bg-[#8B0000]"
+                      style={{
+                        color: subItem.color || 'white'
+                      }}
+                      onClick={() => setDropdownOpen("")}
                     >
-                      {subItem}
+                      {subItem.title || subItem}
                     </Link>
                   ))}
                 </div>
@@ -141,48 +134,6 @@ const Navbar = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
           </button>
-        </div>
-
-        {/* Mobile Dropdown Menu */}
-        <div className={`md:hidden fixed inset-0 ${menuOpen ? 'translate-y-0' : '-translate-y-full'} transition-transform duration-700 ease-in-out bg-red-800 z-30`}>
-          <div className="flex justify-end p-6">
-            <button onClick={() => setMenuOpen(false)} className="focus:outline-none">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
-            </button>
-          </div>
-
-          {/* Mobile Links */}
-          <div className="flex relative flex-col items-center space-y-5 mt-8">
-            {navItems.map((item, index) => (
-              <div key={index} className="">
-                <button
-                  onClick={() => handleDropdownToggle(item.name)}
-                  className="block text-white text-lg font-medium"
-                >
-                  {item.name}
-                </button>
-                {dropdownOpen === item.name && (
-                  <div className="absolute z-50 left-[5svw] mt-2 w-[90svw] max-h-[50vh] overflow-scroll bg-black text-white shadow-lg">
-                    {item.dropdown.map((subItem, subIndex) => (
-                      <Link
-                        key={subIndex}
-                        href={`/page/${sanitizeLinkName(subItem)}`} // Use sanitized link
-                        className="block px-4 py-2 hover:bg-gray-800"
-                        onClick={() => {
-                          setDropdownOpen("");  // Close the dropdown
-                          setMenuOpen(false);    // Close the mobile menu
-                        }}
-                      >
-                        {subItem}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
         </div>
       </header>
     </>

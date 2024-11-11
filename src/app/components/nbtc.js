@@ -20,7 +20,7 @@ const Helpline = () => {
         {/* Main container with responsive padding */}
         <div className="md:h-[30vh] flex flex-col md:flex-row justify-around px-6 py-10 md:px-32">
           {/* Text Section */}
-          <div className="mt-8 text-center md:text-left">
+          <div className="mt-8 md:text-left">
             <h1 className="font-black text-white text-2xl md:text-4xl">
               National Blood Transfusion
             </h1>
