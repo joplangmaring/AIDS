@@ -10,7 +10,6 @@ export const GET = async (req) => {
     const { searchParams } = new URL(req.url);
     const search = searchParams.get('search');
 
-    console.log(search);
 
     // Check if search term is provided
     if (!search) {
