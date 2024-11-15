@@ -4,6 +4,7 @@ import Sidebar from "./components/Sidebar";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Hivpoints from "../components/hivpoints";
+import NearbyServices from "../components/NearbyServices";
 
 
 const geistSans = localFont({
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
                 {/* <Sidebar /> */}
                 {children}
             </div>
+            <NearbyServices />
             <Hivpoints />
             <Footer />
         </div>
