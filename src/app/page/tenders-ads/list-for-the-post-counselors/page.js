@@ -30,13 +30,15 @@ const page = () => {
           </a>
         </div>
 
-        <object 
-          type="application/pdf" 
-          data="/Documents/pdf/List-of-Counselors.pdf" 
-          width="600" 
-          height="1000" 
-          className='md:w-[80svw] w-[100svw] h-[90svh] mx-auto'
-        ></object>
+        <div className='w-fit mx-auto bg-white'>
+          <object 
+            type="application/pdf" 
+            data="/Documents/pdf/List-of-Counselors.pdf" 
+            width="600" 
+            height="1000" 
+            className='md:w-[80svw] w-[100svw] h-[90svh]'
+          ></object>
+        </div>
       </div>
     </div>
   )

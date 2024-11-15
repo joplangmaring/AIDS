@@ -35,7 +35,11 @@ const page = () => {
         <div className='px-20 py-10'>
           <a href="../../../../../Documents/pdf/Notice-for-written-exam.pdf" download='Notice-for-written-exam.pdf' className='bg-[#8b0000] py-2 px-5 text-white text-xl font-bold rounded-md'>Download</a>
         </div>
-        <object type="application/pdf" data="/Documents/pdf/Notice-for-written-exam.pdf" width="600" height="1000" className='md:w-[70svw] w-[90svw] h-[90svh] mx-auto'></object>
+        
+        <div className='w-fit mx-auto bg-white'>
+          <object type="application/pdf" data="/Documents/pdf/Notice-for-written-exam.pdf" width="600" height="1000" className='md:w-[70svw] w-[90svw] h-[90svh] mx-auto'></object>
+        </div>
+      
       </div>
     </div>
   )
