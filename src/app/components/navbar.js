@@ -129,8 +129,9 @@ const Navbar = () => {
 
         {/* Center Text */}
         <div className="flex flex-col w-full md:w-[70%] md:text-left md:mt-0 px-5">
-          <h1 className="text-md md:text-4xl font-bold">Department of Health and Family Welfare</h1>
-          <h2 className="text-sm md:text-2xl font-semibold text-red-600">Government of Meghalaya</h2>
+          <h1 className="text-lg leading-5 md:text-4xl font-black uppercase">Meghalaya Aids Control Society</h1>
+          <h1 className="text-xs md:text-lg font-medium mt-1">Department of Health and Family Welfare</h1>
+          <h2 className="text-xs md:text-xs -mt-1 text-red-600">Government of Meghalaya</h2>
         </div>
 
         {/* Right Logos */}

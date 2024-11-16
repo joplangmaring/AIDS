@@ -37,13 +37,16 @@ const page = () => {
             Download
           </a>
         </div>
-        <object 
-          type="application/pdf" 
-          data="/Documents/pdf/Result-for-the-post-of-Driver-3.pdf" 
-          width="600" 
-          height="1000" 
-          className='md:w-[70svw] w-[90svw] h-[90svh] mx-auto'
-        ></object>
+        
+        <div className='mx-auto bg-white w-fit'>
+          <object 
+            type="application/pdf" 
+            data="/Documents/pdf/Result-for-the-post-of-Driver-3.pdf" 
+            width="600" 
+            height="1000" 
+            className='md:w-[70svw] w-[90svw] h-[90svh] mx-auto'
+          ></object>
+        </div>
       </div>
     </div>
   )

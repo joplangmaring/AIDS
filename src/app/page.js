@@ -16,6 +16,7 @@ import Footer from './components/footer';
 import SmoothScroll from './components/SmoothScroll';
 import Officials from './components/Officials';
 import ComplaintForm from './components/ComplaintForm';
+import NearbyServices from './components/NearbyServices';
 
 
 
@@ -44,6 +45,7 @@ const page = () => {
       {/* <Indialogos/> */}
 
       {/* <Form /> */}
+
       <Footer />
     </div>
     // </SmoothScroll>
