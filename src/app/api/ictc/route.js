@@ -21,8 +21,6 @@ export const GET = async (req) => {
     // Fetch ICTCs matching the district
     const ictcs = await Ictc.find({ district });
 
-    console.log(ictcs)
-
     // Return the ICTCs in the response
     return new Response(JSON.stringify({ success: true, data: ictcs }), { status: 200 });
   } catch (error) {
