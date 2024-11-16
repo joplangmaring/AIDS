@@ -1,22 +1,40 @@
 "use client";
 import { useEffect } from "react";
-import { useInView } from 'react-intersection-observer';
+import { useInView } from "react-intersection-observer";
 import hivtesting from "../../assets/test.png";
 import hand from "../../assets/hand.png";
 import treat from "../../assets/treat.png";
 import consultan from "../../assets/prevention.png";
 import Image from "next/image";
 import background from "../../assets/cards_bg.jpg";
-import { useAnimation, motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const HivTest = () => {
+  const baseAnimationDuration = 0.8; // Duration of each card's animation
+
+  // Animation Variants
   const animationVariant = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
+    hidden: { opacity: 0, y: 100 },
+    visible: (index) => ({
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: 'easeOut' }
-    }
+      transition: {
+        duration: baseAnimationDuration,
+        delay: index * 0.2, // Staggered delay based on card index
+        ease: "easeOut",
+      },
+    }),
+  };
+
+  const imageContinuousMotion = {
+    animate: {
+      y: [0, -7, 7, 0], // Move up and down
+      transition: {
+        duration: 4, // Duration for one complete cycle
+        repeat: Infinity, // Infinite repetition
+        ease: "easeInOut", // Smooth easing
+      },
+    },
   };
 
   return (
@@ -37,31 +55,31 @@ const HivTest = () => {
             { src: treat, label1: "HIV", label2: "TREATMENT" },
             { src: hand, label1: "HIV STIGMA", label2: "Discrimination" },
           ].map((item, index) => {
-            const controls = useAnimation();
-            const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
-
-            useEffect(() => {
-              if (inView) {
-                controls.start('visible');
-              }
-            }, [controls, inView]);
+            const { ref, inView } = useInView({ threshold: 0.5, triggerOnce: true });
 
             return (
               <motion.div
                 key={index}
                 ref={ref}
                 initial="hidden"
-                animate={controls}
+                animate={inView ? "visible" : "hidden"}
+                custom={index} // Pass index to variants
                 variants={animationVariant}
                 className="flex flex-col items-center justify-between text-center p-2 rounded-md w-full"
               >
-                <Image
-                  src={item.src}
-                  alt={item.label1}
-                  width={208}
-                  height={208}
-                  className="bg-white object-contain md:h-72 h-48 w-full rounded-t-2xl shadow-[0_4px_10px_rgba(0,0,0,0.5)]"
-                />
+                {/* Image Wrapper with Overflow Hidden */}
+                <div className="w-full overflow-hidden rounded-t-2xl shadow-[0_4px_10px_rgba(0,0,0,0.5)] bg-white">
+                  {/* Animated Image */}
+                  <motion.div animate={imageContinuousMotion.animate}>
+                    <Image
+                      src={item.src}
+                      alt={item.label1}
+                      width={208}
+                      height={208}
+                      className="bg-white object-contain md:h-72 h-48 w-full"
+                    />
+                  </motion.div>
+                </div>
                 <div className="bg-red-800 w-full flex flex-col p-2">
                   <span className="text-white text-sm">{item.label1}</span>
                   <span className="text-white text-sm">{item.label2}</span>
