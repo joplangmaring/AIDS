@@ -17,6 +17,7 @@ import SmoothScroll from './components/SmoothScroll';
 import Officials from './components/Officials';
 import ComplaintForm from './components/ComplaintForm';
 import NearbyServices from './components/NearbyServices';
+import AlertBar from './components/AlertBar';
 
 
 
@@ -26,6 +27,7 @@ const page = () => {
     // <SmoothScroll>
     <div className='overflow-hidden'>
       <Navbar />
+      <AlertBar />
       <Officials />
       <Logos />
       <HivTest />
