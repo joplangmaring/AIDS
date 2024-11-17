@@ -29,15 +29,16 @@ const page = () => {
       <Officials />
       <Logos />
       <HivTest />
-      <Slider />
+      {/* <Slider /> */}
+      <Activities />
 
 
       {/* <Map/> */}
 
       {/* <About/> */}
-      <Nbtc />
       <Aidnumber />
-      <Activities />
+      <Nbtc />
+      
       <ComplaintForm />
       <Hivpoints />
       {/* <Helpline/> */}

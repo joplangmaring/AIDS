@@ -1,16 +1,39 @@
-import React from "react";
+'use client'
+
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import activities1 from "../../assets/activities1.png";
 import reel from "../../assets/reel.png";
 import activities2 from "../../assets/actvities2.png";
-import aboutsm from "../../assets/activitiesmain.png";
-import rebon from "../../assets/rebn2.png";
-import smallrebon from "../../assets/circle.png";
 import bg from "../../assets/tender-bg.jpg"; // Import the background image
 
+const images = [activities1, reel, activities2]; // Array of images
+
 const Helpline = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Function to handle next slide
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  // Function to handle previous slide
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
+
+  // Automatically slide every 2 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext();
+    }, 2000);
+
+    return () => clearInterval(interval); // Cleanup interval on component unmount
+  }, []);
+
   return (
-    <div className="relative min-h-[100svh] w-screen py-10">
+    <div className="relative min-h-[70svh] h-fit w-screen py-10 overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <Image
@@ -32,51 +55,53 @@ const Helpline = () => {
           </h1>
         </div>
 
-        <div className="block md:hidden mt-8 w-full ">
-          <Image
-            src={aboutsm}
-            alt="About small"
-            className="w-3/4 object-contain mx-auto"
-          />
+        {/* Image Slider */}
+        <div className="relative flex justify-center items-center">
+          <button
+            onClick={handlePrev}
+            className="absolute left-0 z-20 text-white bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-70"
+          >
+            &lt;
+          </button>
+
+          <div className="w-full h-[400px] md:h-[600px] flex justify-center items-center relative overflow-hidden">
+            <AnimatePresence>
+              <motion.div
+                key={currentIndex}
+                initial={{ x: 300, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: -300, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="absolute w-full h-full flex justify-center items-center"
+              >
+                <Image
+                  src={images[currentIndex]}
+                  alt={`Activity ${currentIndex + 1}`}
+                  className="object-contain w-auto h-[80%]" // Ensures image scales with container
+                />
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          <button
+            onClick={handleNext}
+            className="absolute right-0 z-20 text-white bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-70"
+          >
+            &gt;
+          </button>
         </div>
 
-        {/* Desktop View Images */}
-        <div className="hidden md:flex flex-col sm:flex-row justify-center items-center mt-5">
-          {/* First Image */}
-          <div className="flex justify-center items-center mx-2">
-            <Image
-              src={activities1}
-              alt="Activity 1"
-              layout="intrinsic"
-              width={400}
-              height={300}
-              className="w-[80px] sm:w-[200px] md:w-[300px] lg:w-[400px]" 
-            />
-          </div>
-
-          {/* Second Image */}
-          <div className="flex justify-center items-center mx-2">
-            <Image
-              src={reel}
-              alt="Reel"
-              layout="intrinsic"
-              width={400}
-              height={300}
-              className="w-[80px] sm:w-[200px] md:w-[300px] lg:w-[400px]"
-            />
-          </div>
-
-          {/* Third Image */}
-          <div className="flex justify-center items-center mx-2 ">
-            <Image
-              src={activities2}
-              alt="Activity 2"
-              layout="intrinsic"
-              width={400}
-              height={300}
-              className="w-[80px] sm:w-[200px] md:w-[300px] lg:w-[400px]"
-            />
-          </div>
+        {/* Dots for navigation */}
+        <div className="flex justify-center mt-5 space-x-2">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-3 h-3 rounded-full ${
+                currentIndex === index ? "bg-white" : "bg-gray-400"
+              }`}
+            ></button>
+          ))}
         </div>
       </div>
     </div>

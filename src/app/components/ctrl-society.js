@@ -120,7 +120,7 @@ const Logos = () => {
 
       {/* Right Section */}
       <div className="z-0 md:mt-64">
-        <Image src={person} alt="Person" width={250} mdWidth={150} />
+        <Image src={person} alt="Person" width={250} />
       </div>
     </div>
   );
