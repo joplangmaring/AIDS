@@ -6,7 +6,6 @@ const noticeSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        
         description: {
             type: String,
             required: true    
@@ -24,4 +23,5 @@ const noticeSchema = new mongoose.Schema(
     { timestamps: true }
 )
 
-export default mongoose.model("Notice",noticeSchema)
+// export default mongoose.model("Notice",noticeSchema)
+export default mongoose.models.Notice || mongoose.model('Notice', noticeSchema);
