@@ -198,7 +198,7 @@ const Navbar = () => {
                 {item.name}
               </button>
               {dropdownOpen === item.name && (
-                <div className="absolute z-10 mt-0 w-48 bg-black max-h-[50vh] overflow-scroll scrollbar-none text-white shadow-lg">
+                <div className="absolute z-10 mt-0 w-48 bg-black text-white shadow-lg">
                   {item.dropdown.map((subItem, subIndex) => (
                     <Link
                       key={subIndex}
