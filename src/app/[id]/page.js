@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { useEffect, useState, useRef } from 'react';
+import Link from 'next/link';
 
 import { IoLocationOutline } from "react-icons/io5";
 import Navbar from '../components/navbar';
