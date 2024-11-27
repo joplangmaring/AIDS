@@ -13,7 +13,7 @@ import Aidnumber from './components/aidnumber';
 import Hivpoints from './components/hivpoints';
 // import Indialogos from './components/indialogos';
 import Footer from './components/footer';
-import SmoothScroll from './components/SmoothScroll';
+// import SmoothScroll from './components/SmoothScroll';
 import Officials from './components/Officials';
 import ComplaintForm from './components/ComplaintForm';
 import NearbyServices from './components/NearbyServices';
