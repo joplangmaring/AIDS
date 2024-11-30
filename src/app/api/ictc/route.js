@@ -9,7 +9,6 @@ export const GET = async (req) => {
     const url = new URL(req.url);
     const district = url.searchParams.get('district'); // Get the district from query parameters
 
-
     // Check if district is provided
     if (!district) {
       return new Response(
@@ -18,8 +17,8 @@ export const GET = async (req) => {
       );
     }
 
-    // Fetch ICTCs matching the district
-    const ictcs = await Ictc.find({ district });
+    // Fetch ICTCs matching the district and sort by name_of_the_ictc in ascending order
+    const ictcs = await Ictc.find({ district }).sort({ name_of_the_ictc: 1 });
 
     // Return the ICTCs in the response
     return new Response(JSON.stringify({ success: true, data: ictcs }), { status: 200 });

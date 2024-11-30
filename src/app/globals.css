@@ -20,6 +20,11 @@ html, body {
   scrollbar-width: none;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
+
 /* :root {
   --background: #ffffff;
   --foreground: #171717;
