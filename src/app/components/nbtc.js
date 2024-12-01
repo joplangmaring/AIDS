@@ -36,7 +36,7 @@ const Helpline = () => {
                 (Not cause harm, especially TTI), and Of standard quality (Provide
                 clinical...
               </p>
-              <Link href='http://naco.gov.in/national-blood-transfusion-council-nbtc-0' className="text-white mt-3 text-sm md:text-base underline">read more...</Link>
+              <Link href='http://naco.gov.in/national-blood-transfusion-council-nbtc-0' className="text-white mt-3 text-sm md:text-base bg-[#8b0000] py-2 px-4 rounded-md">Read more</Link>
             </div>
           </div>
 

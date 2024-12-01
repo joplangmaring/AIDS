@@ -34,7 +34,7 @@ const page = () => {
         {/* Card Wrapper */}
         <Link
           href="/page/hiv-prevention/condoms"
-          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg bg-white bg-opacity-50 hover:shadow-xl transition-shadow duration-300 cursor-pointer"
         >
           <div className="flex flex-col items-center">
             <h2 className="text-md font-bold text-center mb-2 text-[#8B0000] uppercase">
@@ -53,7 +53,7 @@ const page = () => {
         {/* Repeat the above block for the other cards, updating the href and title accordingly */}
         <Link
           href="/page/hiv-prevention/PrEP"
-          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg bg-white bg-opacity-50 hover:shadow-xl transition-shadow duration-300 cursor-pointer"
         >
           <div className="flex flex-col items-center">
             <h2 className="text-md font-bold text-center mb-2 text-[#8B0000]">
@@ -70,7 +70,7 @@ const page = () => {
         </Link>
         <Link
           href="/page/hiv-prevention/PEP"
-          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg bg-white bg-opacity-50 hover:shadow-xl transition-shadow duration-300 cursor-pointer"
         >
           <div className="flex flex-col items-center">
             <h2 className="text-md font-bold text-center mb-2 text-[#8B0000]">
@@ -87,7 +87,7 @@ const page = () => {
         </Link>
         <Link
           href="/page/hiv-prevention/treatment"
-          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg bg-white bg-opacity-50 hover:shadow-xl transition-shadow duration-300 cursor-pointer"
         >
           <div className="flex flex-col items-center">
             <h2 className="text-md font-bold text-center mb-2 text-[#8B0000]">
@@ -104,7 +104,7 @@ const page = () => {
         </Link> 
         <Link
           href="/page/hiv-prevention/testing-essentials"
-          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg bg-white bg-opacity-50 hover:shadow-xl transition-shadow duration-300 cursor-pointer"
         >
           <div className="flex flex-col items-center">
             <h2 className="text-md font-bold text-center mb-2 text-[#8B0000] uppercase">
@@ -121,7 +121,7 @@ const page = () => {
         </Link>
         <Link
           href="/page/hiv-prevention/injection-drug-use"
-          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg bg-white bg-opacity-50 hover:shadow-xl transition-shadow duration-300 cursor-pointer"
         >
           <div className="flex flex-col items-center">
             <h2 className="text-md font-bold text-center mb-2 text-[#8B0000] uppercase">
@@ -138,7 +138,7 @@ const page = () => {
         </Link>
         <Link
           href="/page/hiv-prevention/sti-prevention"
-          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg bg-white bg-opacity-50 hover:shadow-xl transition-shadow duration-300 cursor-pointer"
         >
           <div className="flex flex-col items-center">
             <h2 className="text-md font-bold text-center mb-2 text-[#8B0000] uppercase">
@@ -155,7 +155,7 @@ const page = () => {
         </Link>
         <Link
           href="/page/hiv-prevention/mpox-prevention"
-          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg bg-white bg-opacity-50 hover:shadow-xl transition-shadow duration-300 cursor-pointer"
         >
           <div className="flex flex-col items-center">
             <h2 className="text-md font-bold text-center mb-2 text-[#8B0000] uppercase">

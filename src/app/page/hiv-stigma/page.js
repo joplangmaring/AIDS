@@ -80,7 +80,7 @@ const page = () => {
     <div className="flex flex-wrap justify-center items-center gap-6 p-4">
         <Link
           href="/page/hiv-stigma/ways-to-stop"
-          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg bg-white bg-opacity-50 hover:shadow-xl transition-shadow duration-300 cursor-pointer"
         >
           <div className="flex flex-col items-center">
             <h2 className="text-md font-bold text-center mb-2 text-[#8B0000] uppercase">
@@ -98,7 +98,7 @@ const page = () => {
 
         <Link
           href="/page/hiv-stigma/stigma-scenarios"
-          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg bg-white bg-opacity-50 hover:shadow-xl transition-shadow duration-300 cursor-pointer"
         >
           <div className="flex flex-col items-center">
             <h2 className="text-md font-bold text-center mb-2 text-[#8B0000] uppercase">
@@ -115,7 +115,7 @@ const page = () => {
         </Link>
         <Link
           href="/page/hiv-stigma/educate-others "
-          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg bg-white bg-opacity-50 hover:shadow-xl transition-shadow duration-300 cursor-pointer"
         >
           <div className="flex flex-col items-center">
             <h2 className="text-md font-bold text-center mb-2 text-[#8B0000] uppercase">
@@ -132,7 +132,7 @@ const page = () => {
         </Link>
         <Link
           href="/page/hiv-stigma/hiv-stigma"
-          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+          className="w-full sm:w-[48%] md:w-[23%] p-4 border rounded-lg shadow-lg bg-white bg-opacity-50 hover:shadow-xl transition-shadow duration-300 cursor-pointer"
         >
           <div className="flex flex-col items-center">
             <h2 className="text-md font-bold text-center mb-2 text-[#8B0000] uppercase">
