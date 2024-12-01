@@ -39,7 +39,7 @@ const Page = () => {
   return (
     <div className="flex min-h-screen bg-gray-900">
       {/* Sidebar */}
-      <Sidebar />
+      
 
       {/* Main Content */}
       <div className="flex-1 lg:ml-64 p-4">

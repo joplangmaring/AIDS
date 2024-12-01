@@ -70,7 +70,7 @@ const Sidebar = () => {
                 <ul className="ml-4 space-y-2">
                   <li>
                     <Link
-                      href="dashboard/add-notice"
+                      href="dashboard/notice/add-notice"
                       className="block px-4 py-2 rounded hover:bg-gray-700"
                     >
                       Add Notice
