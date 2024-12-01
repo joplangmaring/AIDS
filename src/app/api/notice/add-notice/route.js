@@ -10,9 +10,9 @@ export const config = {
 };
 
 export async function POST(req) {
-    console.log('Connecting to MongoDB...');
+    // console.log('Connecting to MongoDB...');
     await connectMongo();
-    console.log('MongoDB connected');
+    // console.log('MongoDB connected');
   
     try {
       const chunks = [];
