@@ -17,7 +17,7 @@ const Sidebar = () => {
       >
         <div className="p-5">
           <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-bold">Home</h1>
+            <Link href='/tempp/dashboard' className="text-2xl font-bold">Home</Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="lg:hidden p-2 rounded bg-gray-700"
@@ -78,7 +78,7 @@ const Sidebar = () => {
                   </li>
                   <li>
                     <Link
-                      href="dashboard/edit-notice"
+                      href="dashboard/notice/edit-notice"
                       className="block px-4 py-2 rounded hover:bg-gray-700"
                     >
                       Edit Notice
@@ -86,7 +86,7 @@ const Sidebar = () => {
                   </li>
                   <li>
                     <Link
-                      href="dashboard/delete-notice"
+                      href="dashboard/notice/delete-notice"
                       className="block px-4 py-2 rounded hover:bg-gray-700"
                     >
                       Delete Notice

@@ -1,32 +1,13 @@
-
-'use client';
-
-// import Sidebar from "../components/Sidebar";
-import axios from "axios";
+"use client";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Page = () => {
-  const [notices, setNotices] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [notices, setNotices] = useState([]);
   const [selectedNotice, setSelectedNotice] = useState(null);
-
-  useEffect(() => {
-    const fetchNotices = async () => {
-      try {
-        const response = await axios.get('http://localhost:3000/api/notice/get-notice');
-        setNotices(response.data.data);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error occurred while fetching notices:', error);
-        setError("Unable to fetch notices. Please try again later.");
-        setLoading(false);
-      }
-    };
-
-    fetchNotices();
-  }, []);
+  const [error, setError] = useState(null);
 
   const openModal = (notice) => {
     setSelectedNotice(notice);
@@ -36,13 +17,55 @@ const Page = () => {
     setSelectedNotice(null);
   };
 
+  // Fetch notices
+  useEffect(() => {
+    const fetchNotices = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:3000/api/notice/get-notice"
+        );
+        setNotices(response.data.data);
+      } catch (err) {
+        console.error("Error fetching notices:", err);
+        setError("Unable to fetch notices. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchNotices();
+  }, []);
+
+  // Delete notice
+  const deleteNotice = async (id) => {
+    try {
+      console.log("Attempting to delete notice with ID:", id);
+      // const response = await axios.delete(`http://localhost:3000/api/notice/delete-notice/${encodeURIComponent(id)}`);
+      const response = await axios.delete(
+        `/api/notice/delete-notice?id=${encodeURIComponent(id)}`
+      );
+
+      console.log("Response from delete:", response.data);
+
+      // Update the UI by removing the deleted notice from the state
+      setNotices((prevNotices) =>
+        prevNotices.filter((notice) => notice._id !== id)
+      );
+
+      alert("Notice deleted successfully!");
+    } catch (err) {
+      console.error("Error deleting notice:", err.response || err.message);
+      alert("Failed to delete the notice. Please try again.");
+    }
+  };
+
   return (
     <div className="flex min-h-screen bg-gray-900">
-      {/* Main Content */}
       <div className="flex-1 lg:ml-64 p-4">
         {/* Top Bar */}
         <div className="p-4 bg-gray-800 text-white rounded mb-6 shadow">
-          <Link href="/tempp/dashboard" className="text-2xl font-bold">Dashboard</Link>
+          <Link href="/tempp/dashboard" className="text-2xl font-bold">
+            Delete Notice
+          </Link>
         </div>
 
         {/* Notices Section */}
@@ -77,12 +100,12 @@ const Page = () => {
                       View File
                     </Link>
                   )}
-                  {/* View Details Button */}
+                  {/* Delete Button */}
                   <button
-                    onClick={() => openModal(notice)}
-                    className="mt-2 bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded"
+                    onClick={() => deleteNotice(notice._id)}
+                    className="mt-2 bg-red-600 hover:bg-red-700 text-white py-1 px-3 rounded"
                   >
-                    View Details
+                    Delete
                   </button>
                 </div>
               ))}

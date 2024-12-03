@@ -18,12 +18,7 @@ export async function PUT(req) {
                 { status: 400 }
             );
         }
-
-        const { title, description, date } = await req.json();
-        if (!title || !description || !date) {
-            return new Response(JSON.stringify({ success: false, message: 'All fields are required' }), { status: 400 });
-        }
-
+        
         const existingNotice = await Notice.findById(noticeId);
         if (!existingNotice) {
             return new Response(
@@ -32,9 +27,33 @@ export async function PUT(req) {
             );
         }
 
+        //Delete kardo existing file ko jagah bachane k liye
+        if (existingNotice.fileLink) {
+            const oldFilePath = path.join(process.cwd(), 'public', existingNotice.fileLink);
+            if (fs.existsSync(oldFilePath)) {
+                fs.unlinkSync(oldFilePath);
+            }
+        }
+        
+        const { file, fileExtension } = await req.json();
+        if (!file || !fileExtension) {
+            return new Response(JSON.stringify({ success: false, message: 'All fields are required' }), { status: 400 });
+        }
+
+        const buffer = Buffer.from(file, 'base64');
+        const fileName = `${Date.now()}-${Math.floor(Math.random() * 10000)}.${fileExtension}`;
+        const filePath = path.join(process.cwd(), 'public', 'temp', fileName);
+
+        const tempDir = path.join(process.cwd(), 'public', 'temp');
+        if (!fs.existsSync(tempDir)) {
+            fs.mkdirSync(tempDir, { recursive: true });
+        }
+
+        fs.writeFileSync(filePath, buffer);
+
         const updatedNotice = await Notice.findByIdAndUpdate(
             noticeId,
-            { title, description, date },
+            { fileLink: `/temp/${fileName}` },
             { new: true }
         );
 
@@ -43,6 +62,7 @@ export async function PUT(req) {
             JSON.stringify({ success: true, data: updatedNotice }),
             { status: 200 }
         );
+
     } catch (error) {
         console.error('Error Updating Notice:', error.message);
         return new Response(

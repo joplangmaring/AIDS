@@ -4,11 +4,11 @@ import fs from 'fs'
 import path from "path";
 
 export const DELETE = async (req, _) => {
-    console.log('Connecting DB');
+    // console.log('Connecting DB');
     
     await connectMongo();
 
-    console.log('DB Connected');
+    // console.log('DB Connected');
     try {
 
         const url = new URL(req.url)
