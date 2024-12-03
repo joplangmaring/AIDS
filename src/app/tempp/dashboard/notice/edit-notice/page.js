@@ -13,30 +13,34 @@ const Page = () => {
     description: "",
     date: "",
   });
-  const [updatedFile, setUpdatedFile] = useState(null);
+  const [newAttachment, setNewAttachment] = useState(null);
+  const [attachmentModal, setAttachmentModal] = useState(false);
+  const [editModal, setEditModal] = useState(false);
+
+
+  const fetchNotices = async () => {
+    try {
+      const response = await axios.get("/api/notice/get-notice");
+      setNotices(response.data.data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error occurred while fetching notices:", error);
+      setError("Unable to fetch notices. Please try again later.");
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchNotices = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/api/notice/get-notice");
-        setNotices(response.data.data);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error occurred while fetching notices:", error);
-        setError("Unable to fetch notices. Please try again later.");
-        setLoading(false);
-      }
-    };
-
     fetchNotices();
   }, []);
 
   const handleEdit = (notice) => {
+    setEditModal(true)
     setSelectedNotice(notice);
     setUpdatedFields({
       title: notice.title,
       description: notice.description,
-      date: new Date(notice.date).toISOString().split("T")[0], 
+      date: new Date(notice.date).toISOString().split("T")[0],
     });
   };
 
@@ -45,56 +49,104 @@ const Page = () => {
     setUpdatedFields({ ...updatedFields, [name]: value });
   };
 
-  const handleFileChange = (e) => {
-    setUpdatedFile(e.target.files[0]);
-  };
-
   const handleSave = async () => {
     if (!selectedNotice) return;
+    const payload = {
+      title: updatedFields.title,
+      description: updatedFields.description,
+      date: updatedFields.date,
+    };
 
     try {
-      const formData = new FormData();
-      formData.append("title", updatedFields.title);
-      formData.append("description", updatedFields.description);
-      formData.append("date", updatedFields.date);
-      if (updatedFile) {
-        formData.append("file", updatedFile);
+      const res = await fetch(`/api/notice/edit-notice?id=${selectedNotice._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        setLoading(false);
+        alert("Notice has been updated successfully!");
+        closeModal();
+        fetchNotices();
+      } else {
+        setLoading(false);
+        alert("Error updating notice!");
       }
-
-      await axios.put(
-        `http://localhost:3000/api/notice/update-notice/${selectedNotice._id}`,
-        formData,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
-      );
-
-      log(selectedNotice)
-      // Update local state
-      setNotices((prevNotices) =>
-        prevNotices.map((notice) =>
-          notice._id === selectedNotice._id ? { ...notice, ...updatedFields } : notice
-        )
-      );
-      setSelectedNotice(null); // Close modal
     } catch (error) {
-      console.error("Error occurred while updating notice:", error);
-      setError("Unable to update notice. Please try again.");
+      setLoading(false);
+      console.error(error);
+      alert("Error updating notice!");
     }
+
   };
 
   const closeModal = () => {
     setSelectedNotice(null);
-    setUpdatedFile(null); // Reset file input
+    setEditModal(false)
+  };
+
+  const openAttachmentModal = (notice) => {
+    setSelectedNotice(notice);
+    setAttachmentModal(true);
+  };
+
+
+  const handleAttachmentChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const base64File = reader.result.split(",")[1]; // Get base64 string (without "data:image/png;base64," part)
+      const fileExtension = file.name.split(".").pop();
+      setNewAttachment({ file: base64File, fileExtension });
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const saveAttachment = async () => {
+    if (!selectedNotice || !newAttachment) return;
+
+    const payload = {
+      file: newAttachment.file, // Send the base64-encoded file
+      fileExtension: newAttachment.fileExtension,
+    };
+
+    try {
+      const res = await fetch(`/api/notice/edit-notice/replace-file?id=${selectedNotice._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        setLoading(false);
+        alert("Attachment replaced successfully!");
+        setAttachmentModal(false)
+        fetchNotices();
+      } else {
+        setLoading(false);
+        alert("Error replacing attachment notice!");
+      }
+    } catch (error) {
+      setLoading(false);
+      console.error(error);
+      alert("Error replacing attachment notice!");
+    }
   };
 
   return (
     <div className="flex min-h-screen bg-gray-900">
       <div className="flex-1 lg:ml-64 p-4">
         <div className="p-4 bg-gray-800 text-white rounded mb-6 shadow">
-          <Link href="/tempp/dashboard" className="text-2xl font-bold">
+          <p className="text-2xl font-bold">
             Edit Notice
-          </Link>
+          </p>
         </div>
 
         <div className="p-4 bg-gray-800 text-white rounded shadow">
@@ -124,15 +176,23 @@ const Page = () => {
                       rel="noopener noreferrer"
                       className="block mt-2 text-blue-400 hover:underline"
                     >
-                      View File
+                      View Attachment
                     </Link>
                   )}
-                  <button
-                    onClick={() => handleEdit(notice)}
-                    className="mt-2 bg-yellow-600 hover:bg-yellow-700 text-white py-1 px-3 rounded"
-                  >
-                    Edit Notice
-                  </button>
+                  <div className="flex md:flex-col flex-row">
+                    <button
+                      onClick={() => handleEdit(notice)}
+                      className="mt-2 bg-yellow-600 hover:bg-yellow-700 text-white py-1 px-3 rounded"
+                    >
+                      Edit Notice
+                    </button>
+                    <button
+                      onClick={() => openAttachmentModal(notice)}
+                      className="mt-2 bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded"
+                    >
+                      Replace Attachment
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>
@@ -142,9 +202,9 @@ const Page = () => {
         </div>
       </div>
 
-      {selectedNotice && (
+      {editModal && (
         <div className="fixed inset-0 z-30 bg-black bg-opacity-75 flex justify-center items-center">
-          <div className="bg-gray-800 text-white rounded-lg shadow-lg p-6 w-full max-w-lg">
+          <div className="bg-gray-800 text-white rounded-lg shadow-lg p-6 w-full max-w-5xl">
             <h2 className="text-2xl font-bold mb-4">Edit Notice</h2>
             <label className="block mb-2">
               Title:
@@ -163,6 +223,7 @@ const Page = () => {
                 value={updatedFields.description}
                 onChange={handleFieldChange}
                 className="w-full p-2 bg-gray-700 rounded mt-1 text-white"
+                rows={10}
               />
             </label>
             <label className="block mb-2">
@@ -175,14 +236,14 @@ const Page = () => {
                 className="w-full p-2 bg-gray-700 rounded mt-1 text-white"
               />
             </label>
-            <label className="block mb-2">
+            {/* <label className="block mb-2">
               File:
               <input
                 type="file"
                 onChange={handleFileChange}
                 className="w-full p-2 bg-gray-700 rounded mt-1 text-white"
               />
-            </label>
+            </label> */}
             <div className="mt-4 flex justify-end gap-2">
               <button
                 onClick={closeModal}
@@ -200,6 +261,36 @@ const Page = () => {
           </div>
         </div>
       )}
+
+
+      {attachmentModal && (
+        <div className="fixed inset-0 z-30 bg-black bg-opacity-75 flex justify-center items-center">
+          <div className="bg-gray-800 text-white rounded-lg shadow-lg p-6 w-full max-w-lg">
+            <h2 className="text-2xl font-bold mb-4">Replace Attachment</h2>
+            <input
+              type="file"
+              onChange={handleAttachmentChange}
+              className="block w-full text-sm text-gray-300 bg-gray-700 rounded mb-4"
+            />
+            <div className="flex justify-end gap-2">
+              <button
+                onClick={() => setAttachmentModal(false)}
+                className="bg-red-600 hover:bg-red-700 text-white py-1 px-3 rounded"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={saveAttachment}
+                className="bg-green-600 hover:bg-green-700 text-white py-1 px-3 rounded"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+
     </div>
   );
 };
