@@ -2,9 +2,9 @@ import connectMongo from "@/lib/mongodb";
 import Notice from "@/models/Notice";
 
 export async function GET(req) {
-  console.log('Connecting to MongoDB...');
+  // console.log('Connecting to MongoDB...');
   await connectMongo();
-  console.log('MongoDB connected');
+  // console.log('MongoDB connected');
 
   try {
     // Fetch all notices from the database

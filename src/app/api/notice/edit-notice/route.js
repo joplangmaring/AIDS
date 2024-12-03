@@ -11,9 +11,9 @@ export const config = {
 };
 
 export async function PUT(req) {
-    console.log('Connecting to MongoDB...');
+    // console.log('Connecting to MongoDB...');
     await connectMongo();
-    console.log('MongoDB connected');
+    // console.log('MongoDB connected');
 
     try {
         // Read the multipart form data
