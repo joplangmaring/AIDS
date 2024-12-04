@@ -71,13 +71,13 @@ export default function AddNotice() {
   if (loading) return <p className="text-white text-center">Loading...</p>;
 
   return (
-    <div className="flex min-h-screen bg-gray-900 md:p-10 ">
+    <div className="flex min-h-screen md:p-10 ">
       <div className="flex-1 lg:ml-64 p-4">
-        <div className="p-4 bg-gray-800 text-white rounded shadow mb-6">
+        <div className="p-4 bg-gradient-to-br from-red-800 to-red-400 backdrop-blur-lg text-white rounded shadow-lg mb-6">
           <h2 className="text-2xl font-bold">Add Notice</h2>
         </div>
 
-        <div className="p-6 bg-gray-800 text-white rounded shadow">
+        <div className="p-6 bg-white text-black rounded shadow-lg">
           <form onSubmit={handleSubmit}>
             <div className="flex md:flex-row flex-col w-full gap-6">
               <div className="flex flex-col w-full">
@@ -85,7 +85,7 @@ export default function AddNotice() {
                   Title
                 </label>
                 <input
-                  className="p-2 rounded bg-gray-700 text-white border-gray-600"
+                  className="p-2 rounded bg-gray-100 text-black border-gray-300 border-b-2"
                   type="text"
                   name="title"
                   value={form.title}
@@ -101,7 +101,7 @@ export default function AddNotice() {
                   Description
                 </label>
                 <textarea
-                  className="p-2 rounded bg-gray-700 text-white border-gray-600"
+                  className="p-2 rounded bg-gray-100 text-black border-gray-300 border-b-2"
                   name="description"
                   value={form.description}
                   onChange={handleChange}
@@ -114,7 +114,7 @@ export default function AddNotice() {
                   Date
                 </label>
                 <input
-                  className="p-2 rounded bg-gray-700 text-white border-gray-600"
+                  className="p-2 rounded bg-gray-100 text-black border-gray-300 border-b-2"
                   type="date"
                   name="date"
                   value={form.date}
@@ -147,7 +147,7 @@ export default function AddNotice() {
               </div>
             </div>
             <button
-              className="mt-6 px-6 py-2 bg-blue-600 text-white rounded shadow hover:bg-blue-700 transition duration-200"
+              className="mt-6 px-6 py-2 bg-[#f04a48] text-white rounded shadow hover:bg-red-700 transition duration-200"
               type="submit"
             >
               Add Notice

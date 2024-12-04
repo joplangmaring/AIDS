@@ -11,7 +11,7 @@ const Sidebar = () => {
     <div className="flex">
       {/* Sidebar */}
       <div
-        className={`fixed z-20 top-0 left-0 h-full w-64 bg-gray-800 text-white transform ${
+        className={`fixed z-20 top-0 left-0 h-full w-64 shadow-lg shadow-gray-600 bg-gradient-to-br from-red-800 to-red-400 text-white transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 ease-in-out lg:translate-x-0`}
       >
@@ -62,7 +62,7 @@ const Sidebar = () => {
             <li>
               <button
                 onClick={() => setIsNoticeOpen(!isNoticeOpen)}
-                className="w-full text-left px-4 py-2 rounded hover:bg-gray-700"
+                className="w-full font-bold text-left px-4 py-2 rounded hover:bg-white hover:bg-opacity-15"
               >
                 Notice
               </button>
@@ -70,24 +70,24 @@ const Sidebar = () => {
                 <ul className="ml-4 space-y-2">
                   <li>
                     <Link
-                      href="dashboard/notice/add-notice"
-                      className="block px-4 py-2 rounded hover:bg-gray-700"
+                      href="/tempp/dashboard/notice/add-notice"
+                      className="block px-4 py-2 rounded hover:bg-white hover:bg-opacity-15"
                     >
                       Add Notice
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="dashboard/notice/edit-notice"
-                      className="block px-4 py-2 rounded hover:bg-gray-700"
+                      href="/tempp/dashboard/notice/edit-notice"
+                      className="block px-4 py-2 rounded hover:bg-white hover:bg-opacity-15"
                     >
                       Edit Notice
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="dashboard/notice/delete-notice"
-                      className="block px-4 py-2 rounded hover:bg-gray-700"
+                      href="/tempp/dashboard/notice/delete-notice"
+                      className="block px-4 py-2 rounded hover:bg-white hover:bg-opacity-15"
                     >
                       Delete Notice
                     </Link>
@@ -97,7 +97,7 @@ const Sidebar = () => {
             </li>
             {/* Logout */}
             <li>
-              <Link href="/logout" className="block px-4 py-2 rounded hover:bg-gray-700">
+              <Link href="/logout" className="block font-bold px-4 py-2 rounded hover:bg-white hover:bg-opacity-15">
                 Logout
               </Link>
             </li>
@@ -114,7 +114,7 @@ const Sidebar = () => {
       )}
 
       {/* Content */}
-      <div className="flex-1 w-full min-h-screen bg-gray-800"> 
+      <div className="flex-1 fixed w-full hover:bg-white hover:bg-opacity-15"> 
         {/* Top Navigation */}
         <div className="p-4 bg-gray-800 text-white flex justify-between lg:hidden w-full">
           {/* <h1 className="text-lg font-semibold">Dashboard</h1> */}

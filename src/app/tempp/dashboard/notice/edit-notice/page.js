@@ -141,15 +141,15 @@ const Page = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-900">
+    <div className="flex min-h-screen">
       <div className="flex-1 lg:ml-64 p-4">
-        <div className="p-4 bg-gray-800 text-white rounded mb-6 shadow">
+        <div className="p-4 bg-gradient-to-br from-red-800 to-red-400 backdrop-blur-lg text-white rounded shadow-lg mb-6">
           <p className="text-2xl font-bold">
             Edit Notice
           </p>
         </div>
 
-        <div className="p-4 bg-gray-800 text-white rounded shadow">
+        <div className="p-4 bg-white text-black rounded shadow">
           <h2 className="text-xl font-semibold mb-4">Notices</h2>
           {loading ? (
             <p className="text-gray-400">Loading notices...</p>
@@ -160,10 +160,10 @@ const Page = () => {
               {notices.map((notice) => (
                 <div
                   key={notice._id}
-                  className="p-4 bg-gray-700 rounded shadow hover:shadow-lg transition-shadow duration-200"
+                  className="p-4 bg-white rounded shadow-xl hover:shadow-sm border transition-shadow duration-200"
                 >
                   <h3 className="text-lg font-bold mb-2">{notice.title}</h3>
-                  <p className="mb-2 text-gray-300">
+                  <p className="mb-2">
                     {notice.description.substring(0, 50)}...
                   </p>
                   <p className="text-sm text-gray-400">
@@ -179,7 +179,7 @@ const Page = () => {
                       View Attachment
                     </Link>
                   )}
-                  <div className="flex md:flex-col flex-row">
+                  <div className="flex md:flex-col flex-row justify-between">
                     <button
                       onClick={() => handleEdit(notice)}
                       className="mt-2 bg-yellow-600 hover:bg-yellow-700 text-white py-1 px-3 rounded"
