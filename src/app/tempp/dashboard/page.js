@@ -15,7 +15,7 @@ const Page = () => {
   useEffect(() => {
     const fetchNotices = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/notice/get-notice');
+        const response = await axios.get('/api/notice/get-notice');
         setNotices(response.data.data);
         setLoading(false);
       } catch (error) {
@@ -37,16 +37,16 @@ const Page = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-900">
+    <div className="flex min-h-screen">
       {/* Main Content */}
       <div className="flex-1 lg:ml-64 p-4">
         {/* Top Bar */}
-        <div className="p-4 bg-gray-800 text-white rounded mb-6 shadow">
+        <div className="p-4 bg-gradient-to-br from-red-800 to-red-400 backdrop-blur-lg text-white rounded mb-6 shadow-lg">
           <Link href="/tempp/dashboard" className="text-2xl font-bold">Dashboard</Link>
         </div>
 
         {/* Notices Section */}
-        <div className="p-4 bg-gray-800 text-white rounded shadow">
+        <div className="p-4 bg-white text-black rounded shadow-lg">
           <h2 className="text-xl font-semibold mb-4">Notices</h2>
           {loading ? (
             <p className="text-gray-400">Loading notices...</p>
@@ -57,33 +57,34 @@ const Page = () => {
               {notices.map((notice) => (
                 <div
                   key={notice._id}
-                  className="p-4 bg-gray-700 rounded shadow hover:shadow-lg transition-shadow duration-200"
+                  className="p-4 bg-white border rounded shadow-xl hover:shadow-sm transition-shadow duration-200"
                 >
                   <h3 className="text-lg font-bold mb-2">{notice.title}</h3>
-                  <p className="mb-2 text-gray-300">
+                  <p className="mb-2">
                     {notice.description.substring(0, 50)}...
                   </p>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm">
                     {new Date(notice.date).toLocaleDateString()}
                   </p>
                   {/* View File Button */}
+                  
+                  {/* View Details Button */}
+                  <button
+                    onClick={() => openModal(notice)}
+                    className="mt-2 mr-4 inline-block bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded"
+                  >
+                    View Details
+                  </button>
                   {notice.fileLink && (
                     <Link
                       href={notice.fileLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block mt-2 text-blue-400 hover:underline"
+                      className="inline-block  mt-2 text-blue-400 hover:underline"
                     >
-                      View File
+                      View Attachment
                     </Link>
                   )}
-                  {/* View Details Button */}
-                  <button
-                    onClick={() => openModal(notice)}
-                    className="mt-2 bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded"
-                  >
-                    View Details
-                  </button>
                 </div>
               ))}
             </div>
@@ -96,7 +97,7 @@ const Page = () => {
       {/* Modal for Full Notice */}
       {selectedNotice && (
         <div className="fixed inset-0 z-30 bg-black bg-opacity-75 flex justify-center items-center">
-          <div className="bg-gray-800 text-white rounded-lg shadow-lg p-6 w-full max-w-lg">
+          <div className="bg-gray-800 text-white rounded-lg shadow-lg p-6 w-full max-w-2xl">
             <h2 className="text-2xl font-bold mb-4">{selectedNotice.title}</h2>
             <p className="mb-4">{selectedNotice.description}</p>
             <p className="text-sm text-gray-400 mb-4">

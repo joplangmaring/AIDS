@@ -22,7 +22,7 @@ const Page = () => {
     const fetchNotices = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/notice/get-notice"
+          "/api/notice/get-notice"
         );
         setNotices(response.data.data);
       } catch (err) {
@@ -36,10 +36,12 @@ const Page = () => {
   }, []);
 
   // Delete notice
-  const deleteNotice = async (id) => {
+  const deleteNotice = async () => {
+    
+    const id = selectedNotice._id
+
     try {
       console.log("Attempting to delete notice with ID:", id);
-      // const response = await axios.delete(`http://localhost:3000/api/notice/delete-notice/${encodeURIComponent(id)}`);
       const response = await axios.delete(
         `/api/notice/delete-notice?id=${encodeURIComponent(id)}`
       );
@@ -50,8 +52,8 @@ const Page = () => {
       setNotices((prevNotices) =>
         prevNotices.filter((notice) => notice._id !== id)
       );
-
       alert("Notice deleted successfully!");
+      setSelectedNotice(null)
     } catch (err) {
       console.error("Error deleting notice:", err.response || err.message);
       alert("Failed to delete the notice. Please try again.");
@@ -59,17 +61,17 @@ const Page = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-900">
+    <div className="flex min-h-screen">
       <div className="flex-1 lg:ml-64 p-4">
         {/* Top Bar */}
-        <div className="p-4 bg-gray-800 text-white rounded mb-6 shadow">
+        <div className="p-4 bg-gradient-to-br from-red-800 to-red-400 backdrop-blur-lg text-white rounded shadow-lg mb-6">
           <Link href="/tempp/dashboard" className="text-2xl font-bold">
             Delete Notice
           </Link>
         </div>
 
         {/* Notices Section */}
-        <div className="p-4 bg-gray-800 text-white rounded shadow">
+        <div className="p-4 bg-white text-black rounded shadow">
           <h2 className="text-xl font-semibold mb-4">Notices</h2>
           {loading ? (
             <p className="text-gray-400">Loading notices...</p>
@@ -80,11 +82,11 @@ const Page = () => {
               {notices.map((notice) => (
                 <div
                   key={notice._id}
-                  className="p-4 bg-gray-700 rounded shadow hover:shadow-lg transition-shadow duration-200"
+                  className="p-4 bg-white rounded shadow-xl border hover:shadow-sm transition-shadow duration-200"
                 >
                   <h3 className="text-lg font-bold mb-2">{notice.title}</h3>
-                  <p className="mb-2 text-gray-300">
-                    {notice.description.substring(0, 50)}...
+                  <p className="mb-2">
+                    {notice.description.substring(0, 100)}...
                   </p>
                   <p className="text-sm text-gray-400">
                     {new Date(notice.date).toLocaleDateString()}
@@ -102,7 +104,7 @@ const Page = () => {
                   )}
                   {/* Delete Button */}
                   <button
-                    onClick={() => deleteNotice(notice._id)}
+                    onClick={() => openModal(notice)}
                     className="mt-2 bg-red-600 hover:bg-red-700 text-white py-1 px-3 rounded"
                   >
                     Delete
@@ -121,26 +123,36 @@ const Page = () => {
         <div className="fixed inset-0 z-30 bg-black bg-opacity-75 flex justify-center items-center">
           <div className="bg-gray-800 text-white rounded-lg shadow-lg p-6 w-full max-w-lg">
             <h2 className="text-2xl font-bold mb-4">{selectedNotice.title}</h2>
-            <p className="mb-4">{selectedNotice.description}</p>
+            <p className="mb-4">{selectedNotice.description.substring(0, 500)}...</p>
             <p className="text-sm text-gray-400 mb-4">
               {new Date(selectedNotice.date).toLocaleDateString()}
             </p>
-            {selectedNotice.fileLink && (
-              <Link
-                href={selectedNotice.fileLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-400 hover:underline"
-              >
-                View Attached File
-              </Link>
-            )}
-            <button
-              onClick={closeModal}
-              className="mt-4 ml-5 bg-red-600 hover:bg-red-700 text-white py-1 px-3 rounded"
-            >
-              Close
-            </button>
+            <div className="flex md:flex-row justify-between items-center">
+              {selectedNotice.fileLink && (
+                <Link
+                  href={selectedNotice.fileLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:underline"
+                >
+                  View Attached File
+                </Link>
+              )}
+              <div className="space-x-4">
+                <button
+                  onClick={closeModal}
+                  className=" bg-gray-600 hover:bg-gray-700 text-white py-1 px-3 rounded"
+                >
+                  Close
+                </button>
+                <button
+                  onClick={deleteNotice}
+                  className=" bg-red-600 hover:bg-red-700 text-white py-1 px-3 rounded"
+                >
+                  Confirm Delete
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}
