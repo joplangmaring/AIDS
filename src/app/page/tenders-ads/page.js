@@ -12,6 +12,28 @@ const Tenders = () => {
         <div className='grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-1 grid-cols-1 gap-10'>
           
           {/* Results for Driver */}
+          <Link href="/page/tenders-ads/list-attendant" className=' text-black font-medium rounded-md text-lg h-full border-2 border-[#8B0000] flex flex-col justify-between mt-5 shadow-2xl hover:scale-[105%] transition duration-500'>
+            <div className='py-5 px-5 min-h-[150px]'>
+              <p>List Attendant</p>
+            </div>
+            <div className='bg-[#8B0000] flex flex-row items-center justify-center px-5'>
+              <p className='py-1 text-sm mr-2 text-white'>View</p>
+              <ArrowRightAltIcon sx={{"color": "white"}}/>
+            </div>
+          </Link>
+
+          {/* Results for Driver */}
+          <Link href="/page/tenders-ads/merit-list-driver" className=' text-black font-medium rounded-md text-lg h-full border-2 border-[#8B0000] flex flex-col justify-between mt-5 shadow-2xl hover:scale-[105%] transition duration-500'>
+            <div className='py-5 px-5 min-h-[150px]'>
+              <p>Merit List - Driver</p>
+            </div>
+            <div className='bg-[#8B0000] flex flex-row items-center justify-center px-5'>
+              <p className='py-1 text-sm mr-2 text-white'>View</p>
+              <ArrowRightAltIcon sx={{"color": "white"}}/>
+            </div>
+          </Link>
+
+          {/* Results for Driver */}
           <Link href="/page/tenders-ads/list-for-the-post-driver" className=' text-black font-medium rounded-md text-lg h-full border-2 border-[#8B0000] flex flex-col justify-between mt-5 shadow-2xl hover:scale-[105%] transition duration-500'>
             <div className='py-5 px-5 min-h-[150px]'>
               <p>Result for for the Post of DRIVER</p>

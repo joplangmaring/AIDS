@@ -8,13 +8,15 @@ import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
 // Notices with links
 const notices = [
-  { text: "List for the Post-Driver", link: "/page/tenders-ads/list-for-the-post-driver" },
-  { text: "List for the Post-Attendant", link: "/page/tenders-ads/list-for-the-post-attendant" },
-  { text: "List for the Post-CPO", link: "/page/tenders-ads/list-for-the-post-cpo" },
-  { text: "List for the Post-Counselors", link: "/page/tenders-ads/list-for-the-post-counselors" },
-  { text: "List for the Post-Office Assistant", link: "/page/tenders-ads/list-for-the-post-office-assistant" },
-  { text: "List for the Post-Technical Officer", link: "/page/tenders-ads/list-for-the-post-to" },
-  { text: "Notice for Written Exam", link: "/page/tenders-ads/notice-for-written-exam" },
+  { text: "List Attendant", link: "/page/tenders-ads/" },
+  { text: "Merit List Driver", link: "/page/tenders-ads/" },
+  { text: "List for the Post-Driver", link: "/page/tenders-ads/" },
+  { text: "List for the Post-Attendant", link: "/page/tenders-ads/" },
+  { text: "List for the Post-CPO", link: "/page/tenders-ads/" },
+  { text: "List for the Post-Counselors", link: "/page/tenders-ads/" },
+  { text: "List for the Post-Office Assistant", link: "/page/tenders-ads/" },
+  { text: "List for the Post-Technical Officer", link: "/page/tenders-ads/" },
+  { text: "Notice for Written Exam", link: "/page/tenders-ads/" },
 ];
 
 const AlertBar = () => {
