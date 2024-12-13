@@ -6,21 +6,31 @@ import Link from "next/link";
 
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
-// Notices with links
-const notices = [
-  { text: "List Attendant", link: "/page/tenders-ads/" },
-  { text: "Merit List Driver", link: "/page/tenders-ads/" },
-  { text: "List for the Post-Driver", link: "/page/tenders-ads/" },
-  { text: "List for the Post-Attendant", link: "/page/tenders-ads/" },
-  { text: "List for the Post-CPO", link: "/page/tenders-ads/" },
-  { text: "List for the Post-Counselors", link: "/page/tenders-ads/" },
-  { text: "List for the Post-Office Assistant", link: "/page/tenders-ads/" },
-  { text: "List for the Post-Technical Officer", link: "/page/tenders-ads/" },
-  { text: "Notice for Written Exam", link: "/page/tenders-ads/" },
-];
 
 const AlertBar = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [notices, setNotices] = useState([]);
+
+  useEffect(() => {
+    const fetchNotices = async () => {
+      try {
+        const response = await fetch("/api/notice/get-notice");
+        const result = await response.json();
+
+        if (result.success) {
+          const fetchedNotices = result.data.map((notice) => ({
+            text: notice.title.length > 30 ? `${notice.title.slice(0, 30)}...` : notice.title,
+            link: notice.link || "/page/tenders-ads/", // Default link if not provided
+          }));
+          setNotices(fetchedNotices);
+        }
+      } catch (error) {
+        console.error("Error fetching notices:", error);
+      }
+    };
+
+    fetchNotices();
+  }, []);
 
   // Function to switch to the next notice
   const handleNext = () => {
@@ -34,7 +44,13 @@ const AlertBar = () => {
     }, 3000); // 5000ms = 5 seconds
 
     return () => clearInterval(interval); // Cleanup on unmount
-  }, []);
+  }, [notices]);
+
+  useEffect( ()=> {
+    console.log(notices)
+  }, [notices])
+
+  if(!notices.length>0) return null
 
   return (
     <div className="bg-[#f5deb3] text-black w-full py-2">
@@ -53,24 +69,12 @@ const AlertBar = () => {
               }}
               className="text-xs md:text-sm font-semibold text-center whitespace-nowrap"
             >
-              <Link href={notices[currentIndex].link} className="hover:underline">
-                {notices[currentIndex].text} <ArrowOutwardIcon sx={{"fontSize": "1rem", "marginBottom": "2px"}}/>
-              </Link>
+              { notices.length>0 && <Link href="/page/tenders-ads/" className="hover:underline">
+                {notices[currentIndex].text} <ArrowOutwardIcon sx={{ "fontSize": "1rem", "marginBottom": "2px" }} />
+              </Link>}
             </motion.div>
           </AnimatePresence>
         </div>
-
-        {/* View More Button */}
-        {/* <motion.a
-          href={notices[currentIndex].link}
-          initial={{ scale: 1 }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ type: "spring", stiffness: 300 }}
-          className="ml-4 text-xs md:text-sm font-bold hover:underline"
-        >
-          View
-        </motion.a> */}
       </div>
     </div>
   );
