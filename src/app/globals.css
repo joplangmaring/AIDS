@@ -29,7 +29,7 @@ html, body {
   width: 50px;
   aspect-ratio: 1;
   border-radius: 50%;
-  border: 8px solid #514b82;
+  border: 8px solid #8b0000;
   animation:
     l20-1 0.8s infinite linear alternate,
     l20-2 1.6s infinite linear;
@@ -48,6 +48,20 @@ html, body {
   49.99%{transform:scaleY(1)  rotate(135deg)}
   50%   {transform:scaleY(-1) rotate(0deg)}
   100%  {transform:scaleY(-1) rotate(-135deg)}
+}
+
+/* HTML: <div class="loader"></div> */
+.loader-2 {
+  width: 15px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  animation: l5 1s infinite linear alternate;
+}
+@keyframes l5 {
+    0%  {box-shadow: 20px 0 #8B0000, -20px 0 #ffffff22;background: #8B0000 }
+    33% {box-shadow: 20px 0 #8B0000, -20px 0 #ffffff22;background: #ffffff22}
+    66% {box-shadow: 20px 0 #ffffff22,-20px 0 #8B0000; background: #ffffff22}
+    100%{box-shadow: 20px 0 #ffffff22,-20px 0 #8B0000; background: #8B0000 }
 }
 
 /* :root {

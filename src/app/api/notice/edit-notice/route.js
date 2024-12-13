@@ -20,7 +20,7 @@ export async function PUT(req) {
         }
 
         const { title, description, date } = await req.json();
-        if (!title || !description || !date) {
+        if (!title || !date) {
             return new Response(JSON.stringify({ success: false, message: 'All fields are required' }), { status: 400 });
         }
 

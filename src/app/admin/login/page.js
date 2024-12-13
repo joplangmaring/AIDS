@@ -4,6 +4,9 @@
 // Images
 import logo from "@/assets/aidlogo.png";
 
+//Components
+import Loading from "@/app/components/Loading"
+
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
@@ -14,12 +17,15 @@ import Link from "next/link";
 export default function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+
   const router = useRouter();
 
   useEffect(() => {
     //To verify admin jwt token using cookies
     const verifyUser = async () => {
       try {
+        setIsLoading(true)
         const res = await fetch('/api/auth/verify', {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
@@ -27,12 +33,17 @@ export default function LoginPage() {
 
         if (res.ok) {
           router.push('/admin/dashboard');
+          setIsLoading(false)
         } else {
           router.push('/admin/login');
+          setIsLoading(false)
         }
       } catch (error) {
+        setIsLoading(false)
         console.error('Failed to verify token', error);
         router.push('/admin/login');
+      } finally {
+        setIsLoading(false)
       }
     };
     verifyUser();
@@ -40,10 +51,10 @@ export default function LoginPage() {
 
 
 
-
-
   async function handleSubmit(e) {
     e.preventDefault();
+    
+    setIsLoading(true)
 
     const res = await fetch('/api/auth/login', {
       method: 'POST',
@@ -53,10 +64,15 @@ export default function LoginPage() {
 
     if (res.ok) {
       router.push('/admin/dashboard');
+      setIsLoading(false)
     } else {
+      setIsLoading(false)
       alert('Invalid username or password');
     }
   }
+
+  if(isLoading) return <Loading />
+
 
   return (
     <section className="dark">

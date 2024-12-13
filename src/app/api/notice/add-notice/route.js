@@ -10,28 +10,33 @@ export async function POST(req) {
     await connectMongo();
 
     const { title, description, date, file, fileExtension } = await req.json();
-    if (!title || !description || !date || !file || !fileExtension) {
+    if (!title || !date) {
       return new Response(JSON.stringify({ success: false, message: 'All fields are required' }), { status: 400 });
     }
 
-     // Decode base64 string and write the file
-     const buffer = Buffer.from(file, 'base64');
-     const fileName = `${Date.now()}-${Math.floor(Math.random() * 10000)}.${fileExtension}`; 
-     const filePath = path.join(process.cwd(), 'public', 'temp', fileName);
+    let fileName = ''
 
-     const tempDir = path.join(process.cwd(), 'public', 'temp');
-     if (!fs.existsSync(tempDir)) {
-         fs.mkdirSync(tempDir, { recursive: true });
-     }
+    if (file) {
+      // Decode base64 string and write the file
+      const buffer = Buffer.from(file, 'base64');
+      fileName = `${Date.now()}-${Math.floor(Math.random() * 10000)}.${fileExtension}`;
+      const filePath = path.join(process.cwd(), 'public', 'temp', fileName);
 
-     fs.writeFileSync(filePath, buffer);
+      const tempDir = path.join(process.cwd(), 'public', 'temp');
+      if (!fs.existsSync(tempDir)) {
+        fs.mkdirSync(tempDir, { recursive: true });
+      }
 
+      fs.writeFileSync(filePath, buffer);
+    }
+
+    const fileToAdd = file?`/temp/${fileName}`:"";
 
     const notice = new Notice({
       title,
       description,
       date,
-      fileLink: `/temp/${fileName}`
+      fileLink: fileToAdd
     });
 
 

@@ -37,8 +37,6 @@ export const DELETE = async (req, _) => {
         }
 
         await Notice.findByIdAndDelete(noticeId)
-
-        console.log('Deleted notice',notice);
         
 
         return new Response(JSON.stringify({ success: true, data: notice, message: "Notice deleted successfully" }), { status: 200 });

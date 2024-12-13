@@ -16,6 +16,7 @@ import { IoTicketSharp } from "react-icons/io5";
 // import Header from '../components/Header';
 // import Sidebar from '../components/Sidebar';
 import Loading from '@/app/components/Loading';
+import Sidebar from '../components/Sidebar';
 
 
 export default function DashboardPage({ children }) {
@@ -70,13 +71,16 @@ export default function DashboardPage({ children }) {
     return <Loading />
   }
 
-
-
-
-
+  
   return (
-    <div className="dark bg-white h-screen w-screen">
+    <div
+      className={`flex bg-[#e0e0e0] md:flex-row flex-col`}
+    >
+      <Sidebar />
+      <div className="w-full min-h-screen md:pt-0 pt-20">
+        {children}
 
+      </div>
     </div>
   )
 }
