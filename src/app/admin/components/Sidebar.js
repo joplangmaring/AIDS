@@ -1,23 +1,64 @@
 
 'use client';
-import { useState } from "react"; 
+
+import React, { useEffect, useState } from 'react'
+import { useRouter, usePathname } from 'next/navigation';
 import Link from "next/link";
 
+//Components
+import Loading from '@/app/components/Loading';
+import LogoutConfirmation from "./LogoutConfirmation";
+
 const Sidebar = () => {
+
   const [isOpen, setIsOpen] = useState(false); // Controls the sidebar visibility
   const [isNoticeOpen, setIsNoticeOpen] = useState(false); // Controls the visibility of notice sub-links
+  const [loading, setLoading] = useState(false);
+  const [logoutModal, setLogoutModal] = useState(false);
+
+  const router = useRouter();
+
+  const handleSetLogoutModal = () => {
+    setLogoutModal(true);
+  }
+
+  const handleLogout = async () => {
+    setLogoutModal(false);
+    try {
+      const res = await fetch('/api/auth/logout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+      if (res.ok) {
+        router.push('/admin/login');
+      }
+    } catch (error) {
+      console.log(error)
+      alert("Failed to logout user!")
+    }
+  }
+
+  if (loading) {
+    return <Loading />
+  }
 
   return (
     <div className="flex">
       {/* Sidebar */}
+      {logoutModal && <LogoutConfirmation
+        title="Logout Account"
+        message="Are you sure you want to logout? Click confirm to logout"
+        handleCancel={() => {
+          setLogoutModal(false);
+        }}
+        handleConfirm={handleLogout}
+      />}
       <div
-        className={`fixed z-20 top-0 left-0 h-full w-64 shadow-lg shadow-gray-600 bg-gradient-to-br from-red-800 to-red-400 text-white transform ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out lg:translate-x-0`}
+        className={`fixed z-20 top-0 left-0 h-full w-64 shadow-lg shadow-gray-600 bg-gradient-to-br from-red-800 to-red-400 text-white transform ${isOpen ? "translate-x-0" : "-translate-x-full"
+          } transition-transform duration-300 ease-in-out lg:translate-x-0`}
       >
         <div className="p-5">
           <div className="flex justify-between items-center">
-            <Link href='/tempp/dashboard' className="text-2xl font-bold">Home</Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="lg:hidden p-2 rounded bg-gray-700"
@@ -58,6 +99,9 @@ const Sidebar = () => {
             </button>
           </div>
           <ul className="space-y-4 mt-6">
+            <li className='w-full'>
+              <Link href='/admin/dashboard' className="block font-bold text-left text-md px-4 py-2 rounded hover:bg-white hover:bg-opacity-15">Dashboard</Link>
+            </li>
             {/* Notice Section */}
             <li>
               <button
@@ -70,7 +114,7 @@ const Sidebar = () => {
                 <ul className="ml-4 space-y-2">
                   <li>
                     <Link
-                      href="/tempp/dashboard/notice/add-notice"
+                      href="/admin/dashboard/notice/add-notice"
                       className="block px-4 py-2 rounded hover:bg-white hover:bg-opacity-15"
                     >
                       Add Notice
@@ -78,7 +122,7 @@ const Sidebar = () => {
                   </li>
                   <li>
                     <Link
-                      href="/tempp/dashboard/notice/edit-notice"
+                      href="/admin/dashboard/notice/edit-notice"
                       className="block px-4 py-2 rounded hover:bg-white hover:bg-opacity-15"
                     >
                       Edit Notice
@@ -86,7 +130,7 @@ const Sidebar = () => {
                   </li>
                   <li>
                     <Link
-                      href="/tempp/dashboard/notice/delete-notice"
+                      href="/admin/dashboard/notice/delete-notice"
                       className="block px-4 py-2 rounded hover:bg-white hover:bg-opacity-15"
                     >
                       Delete Notice
@@ -97,9 +141,9 @@ const Sidebar = () => {
             </li>
             {/* Logout */}
             <li>
-              <Link href="/logout" className="block font-bold px-4 py-2 rounded hover:bg-white hover:bg-opacity-15">
+              <button onClick={handleSetLogoutModal} className="block w-full text-left font-bold px-4 py-2 rounded hover:bg-white hover:bg-opacity-15">
                 Logout
-              </Link>
+              </button>
             </li>
           </ul>
         </div>
@@ -114,9 +158,9 @@ const Sidebar = () => {
       )}
 
       {/* Content */}
-      <div className="flex-1 fixed w-full hover:bg-white hover:bg-opacity-15"> 
+      <div className="flex-1 fixed w-full hover:bg-white hover:bg-opacity-15 z-10">
         {/* Top Navigation */}
-        <div className="p-4 bg-gray-800 text-white flex justify-between lg:hidden w-full">
+        <div className="p-4 bg-gradient-to-br from-red-400 to-red-800 text-white flex justify-between lg:hidden w-full">
           {/* <h1 className="text-lg font-semibold">Dashboard</h1> */}
           <button
             onClick={() => setIsOpen(!isOpen)}

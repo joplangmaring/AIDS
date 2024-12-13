@@ -3,6 +3,9 @@
 import { useState } from "react";
 import Image from "next/image";
 
+//Components
+import Loading from "@/app/components/Loading"
+
 export default function AddNotice() {
   const currentDate = Date.now();
 
@@ -68,7 +71,7 @@ export default function AddNotice() {
     }
   };
 
-  if (loading) return <p className="text-white text-center">Loading...</p>;
+  if (loading) return <Loading />;
 
   return (
     <div className="flex min-h-screen md:p-10 ">
