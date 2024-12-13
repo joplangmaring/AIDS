@@ -41,12 +41,11 @@ const Page = () => {
     const id = selectedNotice._id
 
     try {
-      console.log("Attempting to delete notice with ID:", id);
+      
       const response = await axios.delete(
         `/api/notice/delete-notice?id=${encodeURIComponent(id)}`
       );
 
-      console.log("Response from delete:", response.data);
 
       // Update the UI by removing the deleted notice from the state
       setNotices((prevNotices) =>

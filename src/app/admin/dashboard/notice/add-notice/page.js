@@ -110,7 +110,6 @@ export default function AddNotice() {
                   onChange={handleChange}
                   placeholder="Description"
                   rows={10}
-                  required
                 ></textarea>
 
                 <label htmlFor="date" className="font-semibold mt-4 mb-1">
