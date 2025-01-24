@@ -4,6 +4,9 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+//dynamic
+export const dynamic = 'force-dynamic';
+
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
 //Commponents
@@ -20,7 +23,9 @@ const Tenders = () => {
   useEffect(() => {
     const fetchNotices = async () => {
       try {
-        const response = await axios.get('/api/notice/get-notice');
+        const response = await axios.get('/api/notice/get-notice', {
+          headers: { 'Cache-Control': 'no-cache' }
+        });
         setNotices(response.data.data);
         setLoading(false);
       } catch (error) {

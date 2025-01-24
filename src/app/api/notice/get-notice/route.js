@@ -1,6 +1,8 @@
 import connectMongo from "@/lib/mongodb";
 import Notice from "@/models/Notice";
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(req) {
   // console.log('Connecting to MongoDB...');
   await connectMongo();
@@ -12,8 +14,12 @@ export async function GET(req) {
     
     // Return success response with all notices
     return new Response(
-      JSON.stringify({ success: true, data: notices }),
-      { status: 200 }
+      JSON.stringify({ success: true, data: notices }), { 
+        status: 200,
+        headers: {
+          'Cache-Control': 'no-store', // Prevent caching
+        },
+      }
     );
   } catch (error) {
     console.error('Error Fetching Notices:', error.message);
