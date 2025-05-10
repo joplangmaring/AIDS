@@ -48,6 +48,7 @@ const Navbar = () => {
       "/page/nacp-ii": "nacp",
       "/page/nacp-iii": "nacp",
       "/page/nacp-iv-extended": "nacp",
+      "/page/nacp-v": "nacp",
       "/page/basic-services": "divisions",
       "/page/ictc-in-the-state": "divisions",
       "/page/blood-safety": "divisions",
@@ -58,7 +59,7 @@ const Navbar = () => {
       "/page/status": "divisions",
       "/page/art-centres": "divisions",
       "/page/iec": "divisions",
-      "/page/iec-resource-material": "divisions",
+      // "/page/iec-resource-material": "divisions",
       "/page/youth": "divisions",
       "/page/mainstreaming": "divisions",
       "/page/targeted-intervention": "divisions",
@@ -67,15 +68,12 @@ const Navbar = () => {
       "/page/strategic-information": "divisions",
       "/page/how-to-achieve-a-healthy-living-by-care-support-treatment": "living-with-hivaids",
       "/page/nutrition": "living-with-hivaids",
-      "/page/healthy-diet": "living-with-hivaids",
       "/page/art-treatment": "living-with-hivaids",
       "/page/importance-of-the-treatment": "living-with-hivaids",
       "/page/involvement-of-plhiv-in-the-community": "living-with-hivaids",
-      "/page/grievance-redressal": "living-with-hivaids",
       "/page/events": "macs-in-action",
       "/page/campaigns": "macs-in-action",
-      "/page/stories": "macs-in-action",
-      "/page/hivaids-acts": "hivaids-acts",
+      "/page/hivaids-acts": "hivaids-act",
       "/page/tenders-ads": "tender-and-advertisement",
       "/page/contact-us": "contact",
     };
@@ -108,15 +106,16 @@ const Navbar = () => {
         { title: "NACP I" },
         { title: "NACP II" },
         { title: "NACP III" },
-        { title: "NACP IV Extended" }
+        { title: "NACP IV Extended" },
+        { title: "NACP V" }
       ]
     },
-    { name: "DIVISIONS", dropdown: ["Basic Services", "ICTC in the state", "Blood Safety", "Blood Transfusion", "Licensed Blood Banks", "STI", "Care, Support and Treatment", "STATUS", "ART centres", "IEC", "IEC Resource Material", "Youth", "Mainstreaming", "Targeted Intervention", "List of TIs", "Lab Services", "Strategic Information"] },
-    { name: "LIVING WITH HIV/AIDS", dropdown: ["How to achieve a healthy living by ‘Care, Support & Treatment’", "Nutrition", "Healthy Diet", "ART Treatment", "Importance of the treatment", "Involvement of PLHIV in the community", "Grievance Redressal"] },
-    { name: "MACS IN ACTION", dropdown: ["Events", "Campaigns", "Stories"] },
-    { name: "HIV/AIDS ACTS", dropdown: ["HIV/AIDS Acts"] },
+    { name: "DIVISIONS", dropdown: ["Basic Services", "ICTC in the state", "Blood Safety", "Blood Transfusion", "Licensed Blood Banks", "STI", "Care, Support and Treatment", "STATUS", "ART centres", "IEC", "Youth", "Mainstreaming", "Targeted Intervention", "List of TIs", "Lab Services", "Strategic Information"] },
+    { name: "LIVING WITH HIV/AIDS", dropdown: ["How to achieve a healthy living by ‘Care, Support & Treatment’", "Nutrition", "ART Treatment", "Importance of the treatment", "Involvement of PLHIV in the community"] },
+    { name: "MACS IN ACTION", dropdown: ["Events", "Campaigns"] },
+    { name: "HIV/AIDS ACTS", dropdown: ["HIV/AIDS ACT"] },
     { name: "TENDER AND ADVERTISEMENT", dropdown: ["Tenders & Ads"] },
-    { name: "CONTACT", dropdown: ["Contact Us"] },
+    { name: "GRIEVANCE REDRESSAL", dropdown: ["Grievance Redressal"] },
   ];
 
   return (
@@ -241,10 +240,10 @@ const Navbar = () => {
             <Link href='/' className="text-white text-xl font-medium text-left w-full">HOME</Link>
 
             {navItems.map((item, index) => (
-              <div key={index} className="w-full text-center">
+              <div key={index} className="w-full">
                 <button
                   onClick={() => handleDropdownToggle(item.name)}
-                  className="block text-white text-lg font-medium"
+                  className="block text-white text-lg font-medium text-left"
                 >
                   {item.name}
                 </button>

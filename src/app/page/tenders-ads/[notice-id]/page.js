@@ -83,7 +83,7 @@ const Notice = () => {
                         </div>
                         <div className='bg-white w-fit mx-auto'>
                             <object
-                                data={`../../../../../${notice.fileLink}`}
+                                data={`../../../../..${notice.fileLink}`}
                                 width="600"
                                 height="1000"
                                 className='md:w-[70svw] w-80 md:h-[90svh] h-[50vh] bg-white'
