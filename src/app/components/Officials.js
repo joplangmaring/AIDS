@@ -3,6 +3,7 @@ import React from 'react'
 import Link from "next/link";
 import conrad from '../../assets/conrad.png';
 import femaleboss from '../../assets/femaleboss.png';
+import maleboss from '../../assets/wailad.JPEG';
 
 const Officials = () => {
     return (
@@ -26,9 +27,9 @@ const Officials = () => {
                 <div className="flex items-center mb-6 md:mb-0">
                     <div className="mr-4 md:text-right">
                         <h1 className="font-bold">Minister of Health & Family Welfare</h1>
-                        <h1>Dr. Mazel Ampareen Lyngdoh</h1>
+                        <h1>Shri Wailadmiki Shylla</h1>
                     </div>
-                    <Image src={femaleboss} alt="Health Minister" className="w-16 h-16 md:w-28 md:h-28 object-cover rounded-full" />
+                    <Image src={maleboss} alt="Health Minister" className="w-16 h-16 md:w-28 md:h-28 object-cover rounded-full" />
                 </div>
 
             </div>

@@ -45,8 +45,8 @@ const Page = () => {
     
 
     const contacts = [
-        { name: "Dr.Wallambok Langstieh", designation: "Project Director", contact: "9436163523", email: "dr.wblangstieh@gmail.com" },
-        { name: "Dr (Mrs) Laura Wanda Myrthong", designation: "Deputy Director (Medical)", contact: "9863097525", email: "lauramyrthong@gmail.com" },
+        { name: "Dr. K. Lucia Iawbor", designation: "Project Director", contact: "8731078629", email: "" },
+        { name: "Dr. (Mrs) Laura Wanda Myrthong", designation: "Deputy Director (Medical)", contact: "9863097525", email: "lauramyrthong@gmail.com" },
         { name: "Smti.Fairy Marak", designation: "Assistant Director(Finance)", contact: "8131900837", email: "" },
         { name: "Shri John Gordon Warjri", designation: "Assistant Director (Lab Services)", contact: "8794247682", email: "warjrijohngordon@gmail.com" },
         { name: "Shri Wilson Dohling", designation: "Deputy Director (Prevention)", contact: "9383191921", email: "wdohling@gmail.com" },
