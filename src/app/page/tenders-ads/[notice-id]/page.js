@@ -73,8 +73,7 @@ const Notice = () => {
                     {notice.fileLink && <div className=''>
                         <div className='px-20 py-10 text-center'>
                             <a
-                                href={`../../../../../temp/${notice.fileLink.split('/')[2]}`}
-                                // href={`/Documents${notice.fileLink.split('/')[2]}`}
+                                href={`/api/notice/file/${notice.fileLink.split('/')[2]}`}
                                 download={`${notice.fileLink.split('/')[2]}`}
                                 className='bg-[#8b0000] py-2 px-5 text-white text-xl font-bold rounded-md'
                             >
@@ -83,7 +82,7 @@ const Notice = () => {
                         </div>
                         <div className='bg-white w-fit mx-auto'>
                             <object
-                                data={`../../../../..${notice.fileLink}`}
+                                data={`/api/notice/file/${notice.fileLink.split('/')[2]}`}
                                 width="600"
                                 height="1000"
                                 className='md:w-[70svw] w-80 md:h-[90svh] h-[50vh] bg-white'
