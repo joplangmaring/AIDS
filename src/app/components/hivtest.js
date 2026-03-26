@@ -1,104 +1,67 @@
 "use client";
-import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import hivtesting from "../../assets/test.png";
 import hand from "../../assets/hand.png";
 import treat from "../../assets/treat.png";
 import consultan from "../../assets/prevention.png";
 import Image from "next/image";
-import background from "../../assets/cards_bg.jpg";
 import { motion } from "framer-motion";
-import Link from "next/link"; // Import Link from Next.js
+import Link from "next/link";
 
 const HivTest = () => {
-  const baseAnimationDuration = 0.8; // Duration of each card's animation
-
-  // Animation Variants
   const animationVariant = {
-    hidden: { opacity: 0, y: 100 },
+    hidden: { opacity: 0, y: 60 },
     visible: (index) => ({
       opacity: 1,
       y: 0,
       transition: {
-        duration: baseAnimationDuration,
-        delay: index * 0.2, // Staggered delay based on card index
+        duration: 0.6,
+        delay: index * 0.15,
         ease: "easeOut",
       },
     }),
   };
 
-  const imageContinuousMotion = {
-    animate: {
-      y: [0, -7, 7, 0], // Move up and down
-      transition: {
-        duration: 4, // Duration for one complete cycle
-        repeat: Infinity, // Infinite repetition
-        ease: "easeInOut", // Smooth easing
-      },
-    },
-  };
-
   return (
-    // <div className="relative flex flex-col lg:flex-row justify-center lg:gap-32 md:gap-8 md:px-4 md:py-28 lg:px-0 -z-10">
-      // {/* Background Image with Blur */}
-      // <div
-      //   className="absolute inset-0 bg-cover bg-center filter blur-sm"
-      //   style={{ backgroundImage: `url(${background.src})` }}
-      // />
-      // <div className="absolute inset-0 bg-[#000000B2] z-0" />
+    <div className="flex justify-center items-center w-full section-padding bg-gray-50">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 w-full max-w-screen-xl">
+        {[
+          { src: hivtesting, label1: "HIV", label2: "TESTING", link: "/page/hiv-testing" },
+          { src: consultan, label1: "HIV", label2: "PREVENTION", link: "/page/hiv-prevention" },
+          { src: treat, label1: "HIV", label2: "TREATMENT", link: "/page/hiv-treatment" },
+          { src: hand, label1: "HIV STIGMA", label2: "& Discrimination", link: "/page/hiv-stigma" },
+        ].map((item, index) => {
+          const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
 
-      // {/* Cards */}
-      <div 
-        className="flex justify-center items-center md:p-4 z-10 w-full md:px-20 px-5 min-h-[70vh]"
-        style={{
-          backgroundImage: `url(${background.src})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full py-10 md:py-0">
-          {[
-            { src: hivtesting, label1: "HIV", label2: "TESTING", link: "/page/hiv-testing" },
-            { src: consultan, label1: "HIV", label2: "PREVENTION", link: "/page/hiv-prevention" },
-            { src: treat, label1: "HIV", label2: "TREATMENT", link: "/page/hiv-treatment" },
-            { src: hand, label1: "HIV STIGMA", label2: "Discrimination", link: "/page/hiv-stigma" },
-          ].map((item, index) => {
-            const { ref, inView } = useInView({ threshold: 0.5, triggerOnce: true });
-
-            return (
-              <Link href={item.link} key={index} passHref className="hover:scale-95 transition duration-300">
-                <motion.div
-                  ref={ref}
-                  initial="hidden"
-                  animate={inView ? "visible" : "hidden"}
-                  custom={index} // Pass index to variants
-                  variants={animationVariant}
-                  className="flex flex-col items-center justify-between text-center p-2 rounded-md w-full cursor-pointer"
-                >
-                  {/* Image Wrapper with Overflow Hidden */}
-                  <div className="w-full overflow-hidden rounded-t-2xl shadow-[0_4px_10px_rgba(0,0,0,0.5)] bg-white">
-                    {/* Animated Image */}
-                    <motion.div animate={imageContinuousMotion.animate}>
-                      <Image
-                        src={item.src}
-                        alt={item.label1}
-                        width={208}
-                        height={208}
-                        className="bg-white object-contain md:h-72 h-48 w-full"
-                      />
-                    </motion.div>
-                  </div>
-                  <div className="bg-red-800 w-full flex flex-col p-2">
-                    <span className="text-white text-sm">{item.label1}</span>
-                    <span className="text-white text-sm">{item.label2}</span>
-                  </div>
-                </motion.div>
-              </Link>
-            );
-          })}
-        </div>
+          return (
+            <Link href={item.link} key={index} passHref>
+              <motion.div
+                ref={ref}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                custom={index}
+                variants={animationVariant}
+                className="flex flex-col items-center text-center rounded-xl overflow-hidden cursor-pointer bg-white shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="w-full overflow-hidden bg-white p-3 md:p-4">
+                  <Image
+                    src={item.src}
+                    alt={item.label1}
+                    width={208}
+                    height={208}
+                    className="bg-white object-contain md:h-56 h-36 w-full"
+                  />
+                </div>
+                <div className="bg-brand w-full py-3 md:py-4">
+                  <span className="text-white text-sm md:text-base font-semibold block leading-tight">{item.label1}</span>
+                  <span className="text-white/90 text-xs md:text-sm font-medium">{item.label2}</span>
+                </div>
+              </motion.div>
+            </Link>
+          );
+        })}
       </div>
-    // </div>
+    </div>
   );
 };
 

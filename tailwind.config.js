@@ -10,6 +10,16 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        brand: {
+          DEFAULT: '#8B0000',
+          dark: '#6B0000',
+          light: '#A52A2A',
+          50: '#FEF2F2',
+          100: '#FEE2E2',
+        },
+      },
+      fontFamily: {
+        sans: ['Helvetica', 'Arial', 'sans-serif'],
       },
       keyframes: {
         riseUp: {

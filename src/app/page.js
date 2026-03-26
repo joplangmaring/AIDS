@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Navbar from './components/navbar';
 import Logos from './components/ctrl-society';
 import Helpline from './components/helpline';
@@ -21,58 +21,18 @@ import NearbyServices from './components/NearbyServices';
 import AlertBar from './components/AlertBar';
 
 const Page = () => {
-  const [isLocked, setIsLocked] = useState(true);
-
-  useEffect(() => {
-    // Scroll to Logos immediately on page load
-    const logosElement = document.querySelector('#logos');
-    if (logosElement) {
-      logosElement.scrollIntoView({ behavior: 'auto' }); // No animation, direct scroll
-    }
-
-    // Lock the scroll
-    document.body.style.overflow = 'hidden';
-
-    // After 2 seconds, unlock the scroll and reset to the top
-    const timeout = setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      document.body.style.overflow = 'auto'; // Unlock scroll
-      setIsLocked(false);
-    }, 1000);
-
-    return () => {
-      clearTimeout(timeout);
-      document.body.style.overflow = 'auto'; // Clean up scroll lock
-    };
-  }, []);
-
   return (
-    <div className={`overflow-hidden ${isLocked ? 'no-scroll' : ''}`}>
+    <div className="overflow-hidden">
       <Navbar />
       <AlertBar />
       <Officials />
-      {/* Logos Section */}
-      <div id="logos">
-        <Logos />
-      </div>
+      <Logos />
       <HivTest />
-      {/* <Slider /> */}
       <Activities />
-
-      {/* <Map/> */}
-
-      {/* <About/> */}
       <Aidnumber />
       <Nbtc />
-
       <ComplaintForm />
       <Hivpoints />
-      {/* <Helpline/> */}
-
-      {/* <Indialogos/> */}
-
-      {/* <Form /> */}
-
       <Footer />
     </div>
   );
